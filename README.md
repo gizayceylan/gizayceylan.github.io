@@ -1,1 +1,1 @@
-# gizayceylan.github.io
+# gizce.github.io
