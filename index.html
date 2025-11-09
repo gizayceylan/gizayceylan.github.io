@@ -23,6 +23,26 @@
             border-color: #1a1a1a !important;     /* keep border dark */
           }
         </style>
+        <!-- Custom inline styles -->
+        <style>
+          /* Color each icon */
+          #about .fa-brain {
+            color: #aee1f9; /* light blue */
+          }
+          #about .fa-space-invader {
+            color: #f9a5a5; /* soft coral */
+          }
+        
+          /* Floating animation */
+          @keyframes floaty {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+          }
+        
+          #about .fa-space-invader {
+            animation: floaty 3s ease-in-out infinite;
+          }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
