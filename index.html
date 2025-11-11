@@ -865,16 +865,11 @@
             if (!window.mapInitialized) {
               const map = L.map('map').setView([20, 0], 2);
         
-              // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              //   attribution: '&copy; OpenStreetMap contributors'
-              // }).addTo(map);
-
-              // TILE LAYER HERE
-              L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; CartoDB & OpenStreetMap contributors'
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
               }).addTo(map);
- 
-        
+
+       
               const trips = [
                 { name: 'Switzerland', coords: [46.8182, 8.2275], img: 'assets/img/trips/switzerland.jpg' },
                 { name: 'Turkey', coords: [39.9334, 32.8597], img: 'assets/img/trips/turkey.jpg' },
