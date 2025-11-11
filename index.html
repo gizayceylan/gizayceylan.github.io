@@ -16,13 +16,6 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
 
-        <!-- Leaflet Map CSS -->
-        <!-- <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-          integrity="sha256-sA+e2tuLwU8McofT9GQY2Xj2rj0JkYtN0p+u0E8r+gI="
-          crossorigin=""
-        /> -->
         <!-- Leaflet JS and CSS -->
         <link
           rel="stylesheet"
@@ -865,9 +858,14 @@
             if (!window.mapInitialized) {
               const map = L.map('map').setView([20, 0], 2);
         
-              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-              }).addTo(map);
+              // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              //   attribution: '&copy; OpenStreetMap contributors'
+              // }).addTo(map);
+
+              // Light tile theme
+              L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; CartoDB & OpenStreetMap contributors'
+              }).addTo(map);  
 
        
               const trips = [
