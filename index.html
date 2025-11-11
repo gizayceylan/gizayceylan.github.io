@@ -17,12 +17,24 @@
         <link href="css/styles.css" rel="stylesheet" />
 
         <!-- Leaflet Map CSS -->
+        <!-- <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-sA+e2tuLwU8McofT9GQY2Xj2rj0JkYtN0p+u0E8r+gI="
+          crossorigin=""
+        /> -->
+        <!-- Leaflet JS and CSS -->
         <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
           integrity="sha256-sA+e2tuLwU8McofT9GQY2Xj2rj0JkYtN0p+u0E8r+gI="
           crossorigin=""
         />
+        <script
+          src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+          integrity="sha256-o9N1jRVv6wF6Z8XQ1oe+GQ7YczzFhPrsDxb9t9z3zM="
+          crossorigin=""
+        ></script>
         <!-- Custom inline styles for buttons -->
         <style>
           .btn-social:hover {
@@ -561,7 +573,7 @@
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/is.png" alt="..." style="max-width: 50%";/>
                                     
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">My Applied Information Systems projects integrating AI, machine learning, software engineering, and UX design.</p>
+                                    <p class="mb-4">My applied IS projects integrating AI, machine learning, software engineering, and UX design.</p>
 
                                     <!-- ===== Semester Project @ Applied AI Lab ===== -->
                                   <div class="text-start mb-4">
@@ -650,10 +662,17 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/ts.png" alt="..." style="max-width: 50%";/>
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Places I’ve visited around the world — click a marker to see photos!</p>
+                                    <!-- <p class="mb-4">Places I’ve visited around the world — click a marker to see photos!</p> -->
 
                                     <!-- Leaflet Map Container -->
-                                    <div id="map" style="height: 500px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"></div>
+                                    <!-- <div id="map" style="height: 500px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"></div> -->
+
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Places I’ve visited around the world — click a marker to see photos!</p>
+                                    
+                                    <div id="map" 
+                                         style="height:400px; width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                                    </div>
                                     
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
@@ -876,11 +895,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         
         <!-- Leaflet JS (after Bootstrap) -->
-        <script
+        <!-- <script
           src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
           integrity="sha256-o9N1jRVv6wF6Z8XQ1oe+GQ7YczzFhPrsDxb9t9z3zM="
           crossorigin=""
-        ></script>
+        ></script> -->
         
         <!-- Core theme JS -->
         <script src="js/scripts.js"></script>
