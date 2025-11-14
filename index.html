@@ -34,6 +34,22 @@
                 transform: scale(1.1);
             }
 
+            #scrollTopBtn {
+              position: fixed;
+              bottom: 25px;
+              right: 25px;
+              z-index: 5000;
+              display: none;
+              cursor: pointer;
+              box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            }
+            
+            /* mobile tap fix */
+            #scrollTopBtn:active {
+              transform: scale(1.05);
+            }
+
+
             /* Floating animation */
             @keyframes floaty {
                 0%,100% { transform: translateY(0); }
@@ -82,87 +98,7 @@
                 transition: height 0.25s ease;
             }
         </style>
-        <style>
-
-          #scrollTopBtn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 9999;
-            background-color: #e76f51;
-            border: none;
-            color: white;
-            padding: 14px 15px;
-            border-radius: 50%;
-            font-size: 22px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-            display: none;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-          }
-        
-          #scrollTopBtn:hover {
-            background-color: #d85d44;
-            transform: scale(1.12);
-          }
-        
-          #scrollTopBtn:active {
-            background-color: #d35443;
-            transform: scale(1.05);
-          }
-            
-
-            
-          /* #scrollTopBtn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 9999;
-            display: none;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-          }
-        
-          #scrollTopBtn:hover {
-            transform: scale(1.15);
-            color: #d85d44; 
-          } */
-
-            
-
-            
-   
-
-          /* Scroll to Top Button */
-          /* #scrollTopBtn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 9999;
-            background-color: #e76f51; 
-            border: none;
-            color: white;
-            padding: 12px 14px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-            display: none;
-            transition: all 0.3s ease; 
-          }
-        
-          #scrollTopBtn:hover {
-            background-color:  #cc5c3f; 
-            transform: scale(1.1);
-          }
-          
-          #scrollTopBtn:focus {
-            background-color: #b84f36; 
-            outline: none;
-            transform: scale(1.1);
-          }    */
-        </style>
-
+       
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -1173,12 +1109,10 @@
         </script>
 
         <!-- Scroll to Top Button -->
-        <button id="scrollTopBtn" title="Go to top" style="background:white; border:dark; padding:0; color:#e76f51;">
-          <!-- <i class="fas fa-arrow-up"></i> -->
-          <!-- <i class="fa-solid fa-circle-up"></i> -->
+        <button id="scrollTopBtn" class="btn btn-social">
           <i class="fa-solid fa-chevron-up"></i>
-          <!-- <i class="fa-solid fa-circle-chevron-up fa-3x"></i> -->
         </button>
+
                       
         <!-- Scroll-to-top logic + hide on modals -->
         <script>
