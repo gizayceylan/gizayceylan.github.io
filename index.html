@@ -72,6 +72,21 @@
             .nav-logo:hover {transform: rotate(360deg) scale(1.1);}
             /* Smooth collapse (Bootstrap 3 feel) */
             .navbar-collapse.collapse {transition: height 0.25s ease;}
+
+            .thesis-item {
+              display: flex;
+              align-items: center;
+              gap: 12px;         /* space between image and text */
+              margin-bottom: 0.75rem;
+            }
+            
+            .thesis-thumb {
+              width: 70px;
+              height: auto;
+              border-radius: 6px;
+              box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            }
+
         </style>
     </head>
     <body id="page-top">
@@ -387,10 +402,21 @@
                       </div>
         
                       <!-- Portfolio Modal - Text -->
-                      <p class="text-start"><strong>Thesis:</strong></p>
+                      <!-- <p class="text-start"><strong>Thesis:</strong></p>
                       <ul class="text-start">
                         <li><a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">Serial Dependence in Human Visual Perception and Decision-Making</a></li>
-                      </ul>
+                      </ul> -->
+
+                      <p class="text-start"><strong>Thesis:</strong></p>
+                        <ul class="text-start">
+                          <li class="thesis-item">
+                            <img src="assets/img/pubs/diploma.png" class="thesis-thumb" alt="Thesis thumbnail">
+                            <a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">
+                              Serial Dependence in Human Visual Perception and Decision-Making
+                            </a>
+                          </li>
+                        </ul>
+  
 
                       <p class="text-start"><strong>Webinar:</strong></p>
                       <ul class="text-start">
