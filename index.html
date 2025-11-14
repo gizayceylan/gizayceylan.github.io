@@ -45,10 +45,7 @@
             }
             
             /* mobile tap fix */
-            #scrollTopBtn:active {
-              transform: scale(1.05);
-            }
-
+            #scrollTopBtn:active {transform: scale(1.05);}
 
             /* Floating animation */
             @keyframes floaty {
@@ -75,28 +72,16 @@
             }
 
             /* OPEN state (menu expanded) */
-            .navbar-toggler:not(.collapsed) .top-bar {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            .navbar-toggler:not(.collapsed) .middle-bar {
-                opacity: 0;
-            }
-            .navbar-toggler:not(.collapsed) .bottom-bar {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
+            .navbar-toggler:not(.collapsed) .top-bar {transform: rotate(45deg) translate(6px, 6px);}
+            .navbar-toggler:not(.collapsed) .middle-bar {opacity: 0;}
+            .navbar-toggler:not(.collapsed) .bottom-bar {transform: rotate(-45deg) translate(6px, -6px);}
 
             /* Logo hover animation */
-            .nav-logo {
-                transition: transform 0.4s ease;
-            }
-            .nav-logo:hover {
-                transform: rotate(360deg) scale(1.1);
-            }
+            .nav-logo {transition: transform 0.4s ease;}
+            .nav-logo:hover {transform: rotate(360deg) scale(1.1);}
 
             /* Smooth collapse (Bootstrap 3 feel) */
-            .navbar-collapse.collapse {
-                transition: height 0.25s ease;
-            }
+            .navbar-collapse.collapse {transition: height 0.25s ease;}
         </style>
        
     </head>
@@ -105,8 +90,9 @@
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
 
-                <!-- Brand -->
+                <!-- Brand only title-->
                 <!-- <a class="navbar-brand" href="#page-top">Gizay</a> -->
+                <!-- Brand icon with title-->
                 <a class="navbar-brand d-flex align-items-center" href="#page-top">
                   <img src="assets/invpink.svg" alt="..."
                        style="height:38px; margin-right:10px; transition:transform .4s ease;"
@@ -119,12 +105,11 @@
                 <button class="navbar-toggler collapsed" type="button" 
                         data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        
                     <span class="toggler-icon top-bar"></span>
                     <span class="toggler-icon middle-bar"></span>
                     <span class="toggler-icon bottom-bar"></span>
                 </button>
-
+                <!-- Use this for OLD menu version -->
                 <!-- <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
                     <!-- Menu -->
                     <!-- <i class="fas fa-bars"></i> -->
@@ -1111,7 +1096,7 @@
         <!-- Scroll to Top Button -->
         <button id="scrollTopBtn" class="btn btn-social"
             style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
-            <i class="fa-solid fa-chevron-up fa-xl" style="position:relative; left:-1px; top:-1px"></i>
+            <i class="fa-solid fa-chevron-up fa-xl" style="position:relative; left:-1px; bottom:-1px"></i>
         </button>
 
                       
