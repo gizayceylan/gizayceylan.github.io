@@ -82,8 +82,52 @@
             }
         </style>
         <style>
+            /* Scroll to Top Button */
+            #scrollTopBtn {
+              position: fixed;
+              bottom: 25px;
+              right: 25px;
+              z-index: 9999;
+              background-color: #e76f51; /* base coral */
+              border: 2px solid #2c3e50; /* your dark navy */
+              color: white;
+              padding: 12px 14px;
+              border-radius: 50%;
+              font-size: 20px;
+              cursor: pointer;
+              box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+              display: none;
+              transition: all 0.25s ease;
+              -webkit-tap-highlight-color: transparent;
+            }
+            
+            /* Desktop Hover = darker coral */
+            #scrollTopBtn:hover {
+              background-color: #cc5c3f; /* darker coral */
+              transform: scale(1.1);
+            }
+            
+            /* Desktop Active / Click */
+            #scrollTopBtn:active,
+            #scrollTopBtn:focus {
+              background-color: #b84f36; /* even darker coral */
+              outline: none;
+              transform: scale(0.95);
+            }
+            
+            /* --- FIX MOBILE STICKY HOVER PROBLEM --- */
+            /* Disable hover/active color on touch screens */
+            @media (hover: none) and (pointer: coarse) {
+              #scrollTopBtn:hover,
+              #scrollTopBtn:active,
+              #scrollTopBtn:focus {
+                background-color: #e76f51 !important; /* keep base coral */
+                transform: none !important;
+              }
+            }
+
           /* Scroll to Top Button */
-          #scrollTopBtn {
+          /* #scrollTopBtn {
             position: fixed;
             bottom: 25px;
             right: 25px;
@@ -98,12 +142,12 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             display: none;
             transition: all 0.3s ease; 
-          }
+          } */
         
-          #scrollTopBtn:hover {
+          /* #scrollTopBtn:hover {
             background-color:  #16a085;
             transform: scale(1.1);
-          }
+          } */
         </style>
 
     </head>
