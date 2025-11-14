@@ -1168,15 +1168,15 @@
         <button id="scrollTopBtn" title="Go to top">
           <!-- <i class="fas fa-arrow-up"></i> -->
           <!-- <i class="fa-solid fa-circle-up"></i> -->
-          <!-- <i class="fa-solid fa-chevron-up"></i> -->
-          <i class="fa-solid fa-circle-chevron-up"></i>
-
+          <i class="fa-solid fa-chevron-up"></i>
+          <!-- <i class="fa-solid fa-circle-chevron-up"></i> -->
         </button>
                       
-        <!-- Scroll to top -->
+        <!-- Scroll-to-top logic + hide on modals -->
         <script>
           const scrollBtn = document.getElementById("scrollTopBtn");
         
+          // Show/hide button on scroll
           window.addEventListener("scroll", () => {
             if (window.scrollY > 200) {
               scrollBtn.style.display = "block";
@@ -1185,21 +1185,20 @@
             }
           });
         
+          // Smooth scroll to top
           scrollBtn.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           });
-        </script>
-
-        <!-- Scroll-to-top hide/show on modal open/close -->
-        <script>
-          const scrollBtn = document.getElementById("scrollTopBtn");
         
-          document.addEventListener('show.bs.modal', function () {
+          // Hide scroll button whenever ANY modal opens
+          document.addEventListener('show.bs.modal', () => {
             scrollBtn.style.display = "none";
           });
         
-          document.addEventListener('hide.bs.modal', function () {
-            if (window.scrollY > 200) {
+          // Reshow scroll button ONLY after all modals are closed
+          document.addEventListener('hidden.bs.modal', () => {
+            const anyOpen = document.querySelector('.modal.show');
+            if (!anyOpen && window.scrollY > 200) {
               scrollBtn.style.display = "block";
             }
           });
