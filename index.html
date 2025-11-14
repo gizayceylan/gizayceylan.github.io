@@ -88,7 +88,7 @@
             bottom: 25px;
             right: 25px;
             z-index: 9999;
-            background-color: #e76f51; /* (coral tone) #1abc9c; */
+            background-color: #1abc9c;
             border: none;
             color: white;
             padding: 12px 14px;
@@ -97,23 +97,13 @@
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             display: none;
-            transition: all 0.3s ease;
-            -webkit-tap-highlight-color: transparent; /* prevents mobile highlight */  
+            transition: all 0.3s ease; 
           }
         
           #scrollTopBtn:hover {
-            background-color:  #f28a6b; /* lighter coral hover  #16a085;*/
+            background-color:  #16a085;
             transform: scale(1.1);
           }
-
-          /* Fix mobile tap state (iOS/Android sticky active/focus) */
-          /* #scrollTopBtn:active, */
-          /* #scrollTopBtn:focus { */
-            /* background-color: #e76f51 !important; /* original coral */ 
-            /* color: white !important; */
-            /* outline: none !important; */
-            /* transform: none !important; /* prevents stuck zoom on tap */ 
-          /* }   */
         </style>
 
     </head>
