@@ -15,7 +15,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-
         <!-- Leaflet JS and CSS -->
         <link
           rel="stylesheet"
@@ -33,7 +32,6 @@
                 border-color: #2c3e50 !important;
                 transform: scale(1.1);
             }
-
             #scrollTopBtn {
               position: fixed;
               bottom: 25px;
@@ -43,7 +41,6 @@
               cursor: pointer;
               box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             }
-            
             /* mobile tap fix */
             #scrollTopBtn:active {transform: scale(1.05);}
 
@@ -54,14 +51,12 @@
             }
 
             /* -------------------------------------- */
-            /* 🔥 Bootstrap-3 style hamburger animation */
+            /* Bootstrap-3 style hamburger animation */
             /* -------------------------------------- */
-
             .navbar-toggler {
                 border: none;
                 padding: 0;
             }
-
             .toggler-icon {
                 width: 28px;
                 height: 3px;
@@ -70,20 +65,16 @@
                 margin: 5px 0;
                 transition: all 0.3s ease-in-out;
             }
-
             /* OPEN state (menu expanded) */
             .navbar-toggler:not(.collapsed) .top-bar {transform: rotate(45deg) translate(6px, 6px);}
             .navbar-toggler:not(.collapsed) .middle-bar {opacity: 0;}
             .navbar-toggler:not(.collapsed) .bottom-bar {transform: rotate(-45deg) translate(6px, -6px);}
-
             /* Logo hover animation */
             .nav-logo {transition: transform 0.4s ease;}
             .nav-logo:hover {transform: rotate(360deg) scale(1.1);}
-
             /* Smooth collapse (Bootstrap 3 feel) */
             .navbar-collapse.collapse {transition: height 0.25s ease;}
         </style>
-       
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -162,22 +153,6 @@
                      <i class="fab fa-linkedin-in"></i>
                   </a>
                 </div>
-
-                <!-- <div class="d-flex justify-content-center mt-4">
-                    <a class="btn btn-social mx-1" href="#!" 
-                        style="
-                        border: 2px solid #2c3e50;           /* dark border #1a1a1a*/
-                        background-color: #ec6c6a;           /* pink fill #e76f51*/
-                        color: white;                       /* white icon */
-                        transition: all 0.3s ease;"><i class="fas fa-envelope"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fas fa-fw fa-envelope"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-google"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-github"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1 style="background-color:#24292f;" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                    <a class="btn btn-social rounded-circle mx-1" style="background-color:#ec6c6a;" href="https://github.com/gizce">
-                        <i class="fab fa-github text-white"></i>
-                    </a>
-                </div> -->
             </div>
         </header>
         <!-- Experience Section-->
@@ -311,17 +286,6 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Education Section Content-->
-                <!-- Portfolio Grid Items-->
-                <!-- <div class="row justify-content-center"> -->
-                    <!-- Portfolio Item 4-->
-                    <!-- <div class="col-md-6 col-lg-4 mb-5 mb-lg-0"> -->
-                        <!-- <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4"> -->
-                            <!-- <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"> -->
-                                <!-- <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div> -->
-                            <!-- </div> -->
-                            <!-- <img class="img-fluid" src="assets/img/portfolio/ts.png" alt="..." /> -->
-                        <!-- </div> -->
-                    <!-- </div> -->
                     <div class="row justify-content-center">
                         <div class="col-lg-10 text-center">
                             <img class="img-fluid" src="assets/img/edu/edulato.svg" alt="..." />
@@ -352,11 +316,11 @@
         </section>
         <!-- Footer-->
         <footer class="footer text-center">
-                <div class="container">
+                <!-- <div class="container">
                     <div class="row">
 
                     </div>
-                </div>
+                </div> -->
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
@@ -402,7 +366,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Secondary Modal: PhD @ EPFL -->
         <div class="portfolio-modal modal fade" id="phdModal" tabindex="-1" aria-labelledby="phdModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-xl">
@@ -516,9 +479,6 @@
             </div>
           </div>
         </div>
-
-
-        
         <!-- Portfolio Modal 2-->
         <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
             <div class="modal-dialog modal-xl">
@@ -708,18 +668,10 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/ts.png" alt="..." style="max-width: 50%";/>
                                     <!-- Portfolio Modal - Text-->
-                                    <!-- <p class="mb-4">Places I’ve visited around the world — click a marker to see photos!</p> -->
-
-                                    <!-- Leaflet Map Container -->
-                                    <!-- <div id="map" style="height: 500px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"></div> -->
-
-                                    <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">Places I’ve visited around the world — click a marker to see photos!</p>
-                                    
-                                    <div id="map" 
-                                         style="height:400px; width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-                                    </div>
-                                    
+                                    <!-- Leaflet Map Container -->
+                                    <div id="map" style="height:400px; width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"></div>
+                                    <!-- <div id="map" style="height: 500px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"></div> -->
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -796,8 +748,6 @@
                                       <p class="mt-2 fw-bold">Vodka</p>
                                     </div>
                                   </div>
-                                    
-                                    
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -862,8 +812,6 @@
                                       Magic: The Gathering, Aftermath, Terraforming Mars, Backgammon
                                     </p>
                                  </div>
-                                
-                                    
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -875,8 +823,6 @@
                 </div>
             </div>
         </div>
-
-        
         <!-- Restore main modal on close -->
         <script>
           const phdModal = document.getElementById('phdModal');
@@ -903,9 +849,6 @@
             mainModal.hide();
           });
         </script>
-        
-        <!-- Bootstrap core JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <!-- Initialize Map -->
         <script>
@@ -939,13 +882,15 @@
                   {
                     name: 'Türkiye',
                     coords: [39.9334, 32.8597], // Ankara (central & symbolic)
-                    img: 'assets/img/trips/turkiye.jpg',
+                    img: null,
+                    // img: 'assets/img/trips/turkiye.jpg',
                     cities: 'Ankara, İzmir, Muğla, İstanbul, Antalya, Rize, Eskişehir, Aydın, Bolu, Didim, Balıkesir, Kocaeli, Nevşehir'
                   },
                   {
                     name: 'Italy',
                     coords: [41.8719, 12.5674],
-                    img: 'assets/img/trips/italy.jpg',
+                    img: null,
+                    // img: 'assets/img/trips/italy.jpg',
                     cities: 'Rome, Naples, Pisa, Florence, Milan, Venice, Trieste'
                   },
                   {
@@ -976,13 +921,15 @@
                   {
                     name: 'Belgium',
                     coords: [50.5039, 4.4699],
-                    img: 'assets/img/trips/belgium.jpg',
+                    img: null,  
+                    // img: 'assets/img/trips/belgium.jpg',
                     cities: 'Brussels, Bruges'
                   },
                   {
                     name: 'Germany',
                     coords: [51.1657, 10.4515],
-                    img: 'assets/img/trips/germany.jpg',
+                    img: null,
+                    // img: 'assets/img/trips/germany.jpg',
                     cities: 'Cologne, Frankfurt, Munich, Berlin, Hamburg, Mannheim'
                   },
                   {
@@ -1000,19 +947,22 @@
                   {
                     name: 'Sweden',
                     coords: [60.1282, 18.6435],
-                    img: 'assets/img/trips/sweden.jpg',
+                    img: null,  
+                    // img: 'assets/img/trips/sweden.jpg',
                     cities: 'Stockholm'
                   },
                   {
                     name: 'Finland',
                     coords: [61.9241, 25.7482],
-                    img: 'assets/img/trips/finland.jpg',
+                    img: null,  
+                    // img: 'assets/img/trips/finland.jpg',
                     cities: 'Helsinki, Turku, Åland'
                   },
                   {
                     name: 'Estonia',
                     coords: [58.5953, 25.0136],
-                    img: 'assets/img/trips/estonia.jpg',
+                    img: null,  
+                    // img: 'assets/img/trips/estonia.jpg',
                     cities: 'Tallinn'
                   },
                   // {
@@ -1041,7 +991,6 @@
                   }
                 ];
 
-                
               // Add markers + hover popups
               trips.forEach(t => {
                 
@@ -1065,27 +1014,7 @@
                     this.closePopup();
                   });
                 
-              });
-
-
-              // // Add markers + hover popups
-              // trips.forEach(t => {
-              //   const marker = L.marker(t.coords)
-              //     .addTo(map)
-              //     .bindPopup(`
-              //       <strong>${t.name}</strong><br>
-              //       <em>${t.cities}</em><br>
-              //       <img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">
-              //     `);
-        
-              //   marker.on('mouseover', function () {
-              //     this.openPopup();
-              //   });
-        
-              //   marker.on('mouseout', function () {
-              //     this.closePopup();
-              //   });
-              // });             
+              });        
         
               window.mapInitialized = true;
             }
@@ -1097,13 +1026,10 @@
         <button id="scrollTopBtn" class="btn btn-social"
             style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
             <i class="fa-solid fa-chevron-up fa-xl" style="position:relative; left:-1px; bottom:-1px"></i>
-        </button>
-
-                      
+        </button>          
         <!-- Scroll-to-top logic + hide on modals -->
         <script>
           const scrollBtn = document.getElementById("scrollTopBtn");
-        
           // Show/hide button on scroll
           window.addEventListener("scroll", () => {
             if (window.scrollY > 200) {
@@ -1112,17 +1038,14 @@
               scrollBtn.style.display = "none";
             }
           });
-        
           // Smooth scroll to top
           scrollBtn.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           });
-        
           // Hide scroll button whenever ANY modal opens
           document.addEventListener('show.bs.modal', () => {
             scrollBtn.style.display = "none";
           });
-        
           // Reshow scroll button ONLY after all modals are closed
           document.addEventListener('hidden.bs.modal', () => {
             const anyOpen = document.querySelector('.modal.show');
@@ -1132,19 +1055,10 @@
           });
         </script>
 
+        <!-- Bootstrap core JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
         <!-- Core theme JS -->
         <script src="js/scripts.js"></script>
-
-        
-
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
-        <!-- Core theme JS-->
-        <!-- <script src="js/scripts.js"></script> -->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
     </body>
 </html>
