@@ -83,55 +83,31 @@
             }
         </style>
         <style>
-            /* Scroll to Top Button */
-            /* #scrollTopBtn {
-              position: fixed;
-              bottom: 25px;
-              right: 25px;
-              z-index: 9999;
-              background-color: #e76f51; 
-              border: 2px solid #2c3e50; 
-              color: white;
-              padding: 12px 14px;
-              border-radius: 50%;
-              font-size: 20px;
-              cursor: pointer;
-              box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-              display: none;
-              transition: all 0.25s ease;
-              -webkit-tap-highlight-color: transparent; */
-            /* } */
-            
-            /* Desktop Hover = darker coral */
-            /* #scrollTopBtn:hover {
-              background-color: #cc5c3f; 
-              transform: scale(1.1);
-            } */
-            
-            /* Desktop Active / Click */
-            /* #scrollTopBtn:active,
-            #scrollTopBtn:focus {
-              background-color: #b84f36; 
-              outline: none;
-              transform: scale(0.95);
-            } */
-            
-            /* --- FIX MOBILE STICKY HOVER PROBLEM --- */
-            /* Disable hover/active color on touch screens */
-            /* @media (hover: none) and (pointer: coarse) {
-              #scrollTopBtn:hover {
-                background-color: #e76f51 !important; 
-                transform: none !important;
-              }
-            } */
-
-          /* Scroll to Top Button */
           #scrollTopBtn {
             position: fixed;
             bottom: 25px;
             right: 25px;
             z-index: 9999;
-            background-color: #e76f51; /* base coral */
+            display: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+          }
+        
+          #scrollTopBtn:hover {
+            transform: scale(1.15);
+            color: #d85d44; /* darker coral on hover */
+          }
+
+            
+   
+
+          /* Scroll to Top Button */
+          /* #scrollTopBtn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            background-color: #e76f51; 
             border: none;
             color: white;
             padding: 12px 14px;
@@ -144,15 +120,15 @@
           }
         
           #scrollTopBtn:hover {
-            background-color:  #cc5c3f; /* darker coral */
+            background-color:  #cc5c3f; 
             transform: scale(1.1);
           }
           
           #scrollTopBtn:focus {
-            background-color: #b84f36; /* even darker coral */
+            background-color: #b84f36; 
             outline: none;
             transform: scale(1.1);
-          }   
+          }    */
         </style>
 
     </head>
@@ -1165,11 +1141,11 @@
         </script>
 
         <!-- Scroll to Top Button -->
-        <button id="scrollTopBtn" title="Go to top">
+        <button id="scrollTopBtn" title="Go to top" style="background:none; border:none; padding:0; color:#e76f51;">
           <!-- <i class="fas fa-arrow-up"></i> -->
           <!-- <i class="fa-solid fa-circle-up"></i> -->
-          <i class="fa-solid fa-chevron-up"></i>
-          <!-- <i class="fa-solid fa-circle-chevron-up"></i> -->
+          <!-- <i class="fa-solid fa-chevron-up"></i> -->
+          <i class="fa-solid fa-circle-chevron-up fa-3x"></i>
         </button>
                       
         <!-- Scroll-to-top logic + hide on modals -->
