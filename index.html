@@ -984,26 +984,52 @@
                     cities: 'Kyoto, Hiroshima, Nara, Osaka, Kobe'
                   }
                 ];
-  
 
+                
               // Add markers + hover popups
               trips.forEach(t => {
-                const marker = L.marker(t.coords)
-                  .addTo(map)
-                  .bindPopup(`
+                
+                  // Build popup content conditionally (no broken image!)
+                  const popupContent = `
                     <strong>${t.name}</strong><br>
                     <em>${t.cities}</em><br>
-                    <img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">
-                  `);
+                    ${t.img ? `<img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">` : ''}
+                  `;
+                
+                  const marker = L.marker(t.coords)
+                    .addTo(map)
+                    .bindPopup(popupContent);
+                
+                  // Hover behavior
+                  marker.on('mouseover', function () {
+                    this.openPopup();
+                  });
+                
+                  marker.on('mouseout', function () {
+                    this.closePopup();
+                  });
+                
+              });
+
+
+              // // Add markers + hover popups
+              // trips.forEach(t => {
+              //   const marker = L.marker(t.coords)
+              //     .addTo(map)
+              //     .bindPopup(`
+              //       <strong>${t.name}</strong><br>
+              //       <em>${t.cities}</em><br>
+              //       <img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">
+              //     `);
         
-                marker.on('mouseover', function () {
-                  this.openPopup();
-                });
+              //   marker.on('mouseover', function () {
+              //     this.openPopup();
+              //   });
         
-                marker.on('mouseout', function () {
-                  this.closePopup();
-                });
-              });             
+              //   marker.on('mouseout', function () {
+              //     this.closePopup();
+              //   });
+              // });             
         
               window.mapInitialized = true;
             }
