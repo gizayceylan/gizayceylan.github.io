@@ -49,7 +49,7 @@
                 50%     { transform: translateY(-6px); }
             }
             /* -------------------------------------- */
-            /* Bootstrap-3 style hamburger animation */
+            /* Bootstrap-3 style hamburger animation  */
             /* -------------------------------------- */
             .navbar-toggler {
                 border: none;
@@ -72,22 +72,11 @@
             .nav-logo:hover {transform: rotate(360deg) scale(1.1);}
             /* Smooth collapse (Bootstrap 3 feel) */
             .navbar-collapse.collapse {transition: height 0.25s ease;}
-
-            /* .thesis-item {
-              display: flex;
-              align-items: center;
-              gap: 12px;         
-              margin-bottom: 0.75rem;
-            }
             
-            .thesis-thumb {
-              width: 70px;
-              height: auto;
-              border-radius: 6px;
-              box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            } */
-
-          .paper-thumb {
+            /* -------------------------------------- */
+            /* Paper item to be added to the styles   */
+            /* -------------------------------------- */
+          .pub-thumb {
             width: 80px;
             height: 80px;
             object-fit: cover;
@@ -96,19 +85,19 @@
             border: 1px solid #ddd;
           }
         
-          .paper-item {
+          .pub-item {
             display: flex;
             align-items: center;
             margin-bottom: 12px;
           }
         
-          .paper-item a {
+          .pub-item a {
             text-decoration: none;
             /* color: #2c3e50; */
             font-weight: 500;
           }
         
-          .paper-item a:hover {
+          .pub-item a:hover {
             text-decoration: underline;
           }
 
@@ -434,8 +423,8 @@
 
                       <p class="text-start"><strong>Thesis:</strong></p>
                         <ul class="text-start">
-                          <li class="paper-item">
-                            <img src="assets/img/pubs/diploma.png" class="paper-thumb" alt="Paper thumbnail">
+                          <li class="pub-item">
+                            <img src="assets/img/pubs/diploma.png" class="pub-thumb" alt="Thesis thumbnail">
                             <a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">
                               Serial Dependence in Human Visual Perception and Decision-Making
                             </a>
@@ -445,10 +434,14 @@
 
                       <p class="text-start"><strong>Webinar:</strong></p>
                       <ul class="text-start">
-                          <li>APTC 2021: <a href="https://aptc2021.github.io/" target="_blank">Attention, Perception, and Temporal Context</a></li>
+                          <li class="pub-item">
+                              <img src="assets/img/pubs/webinar.jpg" class="pub-thumb" alt="Webinar thumbnail">
+                              <a href="https://aptc2021.github.io/" target="_blank">Attention, Perception, and Temporal Context
+                            </a>
+                          </li>
                       </ul>
         
-                      <p class="text-start"><strong>Papers:</strong></p>
+                      <!-- <p class="text-start"><strong>Papers:</strong></p>
                       <ul class="text-start">                 
                         <li><a href="#" target="_blank">Dissecting serial dependence: the effect of the response type, stimulus-response mapping, and retention interval</a></li>
                         <li><a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">The format of the internal representations in serial dependence</a></li>
@@ -456,8 +449,58 @@
                         <li><a href="https://doi.org/10.1167/jov.23.1.9" target="_blank">Serial dependence in visual perception: A review</a></li>
                         <li><a href="https://doi.org/10.1016/j.cognition.2022.105211" target="_blank">Feature distribution learning by passive exposure</a></li>
                         <li><a href="https://doi.org/10.1016/j.cognition.2021.104709" target="_blank">Serial dependence does not originate from low-level visual processing</a></li>
-                      </ul>
-        
+                      </ul> -->
+                    <p class="text-start"><strong>Papers:</strong></p>
+                    <div class="text-start">
+                    
+                      <!-- Paper 1 -->
+                      <div class="pub-item">
+                        <img src="assets/img/papers/remap.png" class="pub-thumb" alt="">
+                        <a href="#" target="_blank">Dissecting serial dependence: the effect of the response type, stimulus-response mapping, and retention interval</a>
+                      </div>
+                    
+                      <!-- Paper 2 -->
+                      <div class="pub-item">
+                        <img src="assets/img/papers/format.png" class="pub-thumb" alt="">
+                        <a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">
+                          The format of the internal representations in serial dependence
+                        </a>
+                      </div>
+                    
+                      <!-- Paper 3 -->
+                      <div class="pub-item">
+                        <img src="assets/img/papers/attrep.png" class="pub-thumb" alt="">
+                        <a href="https://doi.org/10.1167/jov.23.6.8" target="_blank">
+                          Attractive and repulsive serial dependence: The role of task relevance, the passage of time, and the number of stimuli
+                        </a>
+                      </div>
+                    
+                      <!-- Paper 4 -->
+                      <div class="pub-item">
+                        <img src="assets/img/papers/review.png" class="pub-thumb" alt="">
+                        <a href="https://doi.org/10.1167/jov.23.1.9" target="_blank">
+                          Serial dependence in visual perception: A review
+                        </a>
+                      </div>
+                    
+                      <!-- Paper 5 -->
+                      <div class="pub-item">
+                        <img src="assets/img/papers/fdl.jpg" class="pub-thumb" alt="">
+                        <a href="https://doi.org/10.1016/j.cognition.2022.105211" target="_blank">
+                          Feature distribution learning by passive exposure
+                        </a>
+                      </div>
+                    
+                      <!-- Paper 6 -->
+                      <div class="pub-item">
+                        <img src="assets/img/papers/task.jpg" class="pub-thumb" alt="">
+                        <a href="https://doi.org/10.1016/j.cognition.2021.104709" target="_blank">
+                          Serial dependence does not originate from low-level visual processing
+                        </a>
+                      </div>
+                    
+                    </div>
+
                       <p class="text-start"><strong>Conferences:</strong></p>
                       <ul class="text-start">
                         <li>VSS 2023 — Talk: <a href="https://doi.org/10.1167/jov.23.9.5392" target="_blank">Expectations and cognitive control modulate history biases in perceptual decisions</a></li>
