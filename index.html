@@ -73,10 +73,10 @@
             /* Smooth collapse (Bootstrap 3 feel) */
             .navbar-collapse.collapse {transition: height 0.25s ease;}
 
-            .thesis-item {
+            /* .thesis-item {
               display: flex;
               align-items: center;
-              gap: 12px;         /* space between image and text */
+              gap: 12px;         
               margin-bottom: 0.75rem;
             }
             
@@ -85,7 +85,32 @@
               height: auto;
               border-radius: 6px;
               box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            }
+            } */
+
+          .paper-thumb {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-right: 12px;
+            border: 1px solid #ddd;
+          }
+        
+          .paper-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+          }
+        
+          .paper-item a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+          }
+        
+          .paper-item a:hover {
+            text-decoration: underline;
+          }
 
         </style>
     </head>
@@ -409,8 +434,8 @@
 
                       <p class="text-start"><strong>Thesis:</strong></p>
                         <ul class="text-start">
-                          <li class="thesis-item">
-                            <img src="assets/img/pubs/diploma.png" class="thesis-thumb" alt="Thesis thumbnail">
+                          <li class="paper-item">
+                            <img src="assets/img/pubs/diploma.png" class="paper-thumb" alt="Paper thumbnail">
                             <a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">
                               Serial Dependence in Human Visual Perception and Decision-Making
                             </a>
