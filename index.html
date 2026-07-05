@@ -1,469 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Gizay</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/invyellow.svg" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <!-- Leaflet JS and CSS -->
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-        />
-        <script
-          src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js">
-        </script>
-        <!-- Custom inline styles -->
-        <style>
-            /* Social icon hover */
-            .btn-social:hover {
-                background-color: #cc5c3f !important;
-                color: white !important;
-                border-color: #2c3e50 !important;
-                transform: scale(1.1);
-            }
-            #scrollTopBtn {
-              position: fixed;
-              bottom: 25px;
-              right: 25px;
-              z-index: 5000;
-              display: none;
-              cursor: pointer;
-              box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-            }
-            /* mobile tap fix */
-            #scrollTopBtn:active {transform: scale(1.05);}
-            /* Floating animation */
-            @keyframes floaty {
-                0%,100% { transform: translateY(0); }
-                50%     { transform: translateY(-6px); }
-            }
-            /* -------------------------------------- */
-            /* Bootstrap-3 style hamburger animation  */
-            /* -------------------------------------- */
-            .navbar-toggler {
-                border: none;
-                padding: 0;
-            }
-            .toggler-icon {
-                width: 28px;
-                height: 3px;
-                background-color: white;
-                display: block;
-                margin: 5px 0;
-                transition: all 0.3s ease-in-out;
-            }
-            /* OPEN state (menu expanded) */
-            .navbar-toggler:not(.collapsed) .top-bar {transform: rotate(45deg) translate(6px, 6px);}
-            .navbar-toggler:not(.collapsed) .middle-bar {opacity: 0;}
-            .navbar-toggler:not(.collapsed) .bottom-bar {transform: rotate(-45deg) translate(6px, -6px);}
-            /* Logo hover animation */
-            .nav-logo {transition: transform 0.4s ease;}
-            .nav-logo:hover {transform: rotate(360deg) scale(1.1);}
-            /* Smooth collapse (Bootstrap 3 feel) */
-            .navbar-collapse.collapse {transition: height 0.25s ease;}
-            
-            /* -------------------------------------- */
-            /* Paper item to be added to the styles   */
-            /* -------------------------------------- */
-          .pub-thumb {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-right: 12px;
-            border: 1px solid #ddd;
-            flex-shrink: 0;  
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-          }
-            .pub-thumb:hover {
-            transform: scale(1.05);
-            transition: 0.25s ease;    
-          }
-        
-          .pub-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-          }
-        
-          .pub-item a {
-            text-decoration: none;
-            /* color: #2c3e50; */
-            font-weight: 500;
-          }
-        
-          .pub-item a:hover {
-            text-decoration: underline;
-          }
 
-          /* Force uniform circular pet thumbnails */
-        .friends-pic {
-          width: 150px;          
-          height: 120px;
-          object-fit: cover;     
-          border-radius: 50%;    
-          box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-          display: block;
-          margin: 0 auto;        
-        }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Gizay</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/invyellow.svg" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <!-- Leaflet JS and CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js">
+  </script>
+  <!-- Custom inline styles -->
+  <style>
+    /* Social icon hover */
+    .btn-social:hover {
+      background-color: #cc5c3f !important;
+      color: white !important;
+      border-color: #2c3e50 !important;
+      transform: scale(1.1);
+    }
 
-          .friends-pic:hover {
-          transform: scale(1.05);
-          transition: 0.25s ease;
-        }
-  
-        </style>
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 5000;
+      display: none;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
 
-                <!-- Brand only title-->
-                <!-- <a class="navbar-brand" href="#page-top">Gizay</a> -->
-                <!-- Brand icon with title-->
-                <a class="navbar-brand d-flex align-items-center" href="#page-top">
-                  <img src="assets/invpink.svg" alt="..."
-                       style="height:38px; margin-right:10px; transition:transform .4s ease;"
-                       onmouseover="this.style.transform='rotate(360deg) scale(1.1)'"
-                       onmouseout="this.style.transform='none'">
-                  <span>Gizay</span>
-                </a>
+    /* mobile tap fix */
+    #scrollTopBtn:active {
+      transform: scale(1.05);
+    }
 
-                <!-- NEW Bootstrap-3-style hamburger -->
-                <button class="navbar-toggler collapsed" type="button" 
-                        data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="toggler-icon top-bar"></span>
-                    <span class="toggler-icon middle-bar"></span>
-                    <span class="toggler-icon bottom-bar"></span>
-                </button>
-                <!-- Use this for OLD menu version -->
-                <!-- <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
-                    <!-- Menu -->
-                    <!-- <i class="fas fa-bars"></i> -->
-                <!-- </button> -->
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#experience">XP</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#experienceplus">XP+</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Me</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#education">Edu</a></li>
-                    </ul>
-                </div>
+    /* Floating animation */
+    @keyframes floaty {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    /* -------------------------------------- */
+    /* Bootstrap-3 style hamburger animation  */
+    /* -------------------------------------- */
+    .navbar-toggler {
+      border: none;
+      padding: 0;
+    }
+
+    .toggler-icon {
+      width: 28px;
+      height: 3px;
+      background-color: white;
+      display: block;
+      margin: 5px 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* OPEN state (menu expanded) */
+    .navbar-toggler:not(.collapsed) .top-bar {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .navbar-toggler:not(.collapsed) .middle-bar {
+      opacity: 0;
+    }
+
+    .navbar-toggler:not(.collapsed) .bottom-bar {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Logo hover animation */
+    .nav-logo {
+      transition: transform 0.4s ease;
+    }
+
+    .nav-logo:hover {
+      transform: rotate(360deg) scale(1.1);
+    }
+
+    /* Smooth collapse (Bootstrap 3 feel) */
+    .navbar-collapse.collapse {
+      transition: height 0.25s ease;
+    }
+
+    /* -------------------------------------- */
+    /* Paper item to be added to the styles   */
+    /* -------------------------------------- */
+    .pub-thumb {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 12px;
+      border: 1px solid #ddd;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .pub-thumb:hover {
+      transform: scale(1.05);
+      transition: 0.25s ease;
+    }
+
+    .pub-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .pub-item a {
+      text-decoration: none;
+      /* color: #2c3e50; */
+      font-weight: 500;
+    }
+
+    .pub-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Force uniform circular pet thumbnails */
+    .friends-pic {
+      width: 150px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .friends-pic:hover {
+      transform: scale(1.05);
+      transition: 0.25s ease;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+
+      <!-- Brand only title-->
+      <!-- <a class="navbar-brand" href="#page-top">Gizay</a> -->
+      <!-- Brand icon with title-->
+      <a class="navbar-brand d-flex align-items-center" href="#page-top">
+        <img src="assets/invpink.svg" alt="..." style="height:38px; margin-right:10px; transition:transform .4s ease;"
+          onmouseover="this.style.transform='rotate(360deg) scale(1.1)'" onmouseout="this.style.transform='none'">
+        <span>Gizay</span>
+      </a>
+
+      <!-- NEW Bootstrap-3-style hamburger -->
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="toggler-icon top-bar"></span>
+        <span class="toggler-icon middle-bar"></span>
+        <span class="toggler-icon bottom-bar"></span>
+      </button>
+      <!-- Use this for OLD menu version -->
+      <!-- <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
+      <!-- Menu -->
+      <!-- <i class="fas fa-bars"></i> -->
+      <!-- </button> -->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#experience">XP</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#experienceplus">XP+</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Me</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#education">Edu</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Masthead-->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+      <!-- Masthead Avatar Image-->
+      <img class="masthead-avatar mb-5" src="assets/img/mavatarc.svg" alt="..." />
+      <!-- Masthead Heading-->
+      <h1 class="masthead-heading mb-0">Dr. Gizay Ceylan</h1>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Masthead Subheading-->
+      <p class="masthead-subheading font-weight-light mb-0">Neuroscientist - AI & Coffee Enthusiast</p>
+      <p class="masthead-subheading font-weight-light mt-2"><i class="fas fa-map-marker-alt me-2"></i>Vaud, Switzerland
+      </p>
+      <!-- Footer Social Icons-->
+      <div class="d-flex justify-content-center mt-4">
+        <a class="btn btn-social mx-2" href="mailto:gizayceylan@gmail.com"
+          style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
+          <i class="fas fa-envelope"></i>
+        </a>
+
+        <a class="btn btn-social mx-2" href="https://scholar.google.com/citations?user=yJ-9P78AAAAJ&hl=en"
+          style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
+          <i class="fab fa-google"></i>
+        </a>
+
+        <a class="btn btn-social mx-2" href="https://github.com/gizayceylan"
+          style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
+          <i class="fab fa-github"></i>
+        </a>
+
+        <a class="btn btn-social mx-2" href="https://www.linkedin.com/in/gizay-ceylan-phd-71a317281/"
+          style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- Experience Section-->
+  <section class="page-section portfolio mb-0" id="experience">
+    <div class="container">
+      <!-- Experience Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Experience</h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Experience Grid Items-->
+      <div class="row justify-content-center">
+        <!-- Portfolio Item 1-->
+        <div class="col-md-6 col-lg-4 mb-5">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/mavatarc.svg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading mb-0">Dr. Gizay Ceylan</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Neuroscientist - AI & Coffee Enthusiast</p>
-                <p class="masthead-subheading font-weight-light mt-2"><i class="fas fa-map-marker-alt me-2"></i>Vaud, Switzerland</p>
-                <!-- Footer Social Icons-->
-                <div class="d-flex justify-content-center mt-4">
-                  <a class="btn btn-social mx-2" href="mailto:gizayceylan@gmail.com"
-                     style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
-                     <i class="fas fa-envelope"></i>
-                  </a>
-                
-                  <a class="btn btn-social mx-2" href="https://scholar.google.com/citations?user=yJ-9P78AAAAJ&hl=en" 
-                     style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
-                     <i class="fab fa-google"></i>
-                  </a>
-                
-                  <a class="btn btn-social mx-2" href="https://github.com/gizayceylan" 
-                     style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
-                     <i class="fab fa-github"></i>
-                  </a>
-                
-                  <a class="btn btn-social mx-2" href="https://www.linkedin.com/in/gizay-ceylan-phd-71a317281/" 
-                     style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
-                     <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </div>
+            <img class="img-fluid rounded shadow" src="assets/img/portfolio/nsc.png" alt="..." />
+          </div>
+        </div>
+        <!-- Portfolio Item 2-->
+        <div class="col-md-6 col-lg-4 mb-5">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
             </div>
-        </header>
-        <!-- Experience Section-->
-        <section class="page-section portfolio mb-0" id="experience">
-            <div class="container">
-                <!-- Experience Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Experience</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Experience Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid rounded shadow" src="assets/img/portfolio/nsc.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid rounded shadow" src="assets/img/portfolio/dl.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid rounded shadow" src="assets/img/portfolio/is.png" alt="..." />
-                        </div>
-                    </div>
-                </div>
+            <img class="img-fluid rounded shadow" src="assets/img/portfolio/dl.png" alt="..." />
+          </div>
+        </div>
+        <!-- Portfolio Item 3-->
+        <div class="col-md-6 col-lg-4 mb-5">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
             </div>
-        </section>
-        <!-- Experience Plus Section-->
-        <section class="page-section portfolio bg-primary mb-0" id="experienceplus">
-            <!-- Local style for this section only -->
-            <style>
-                /* Only affects hover overlays in this section */
-                #experienceplus .portfolio-item .portfolio-item-caption {
-                  background-color: rgba(233, 94, 85, 0.9); /* coral tone */
-                }
-            </style>
-            <div class="container">
-                <!-- Experience Plus Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Experience Plus</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Experience Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid rounded shadow" src="assets/img/portfolio/ts.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid rounded shadow" src="assets/img/portfolio/fs.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid rounded shadow" src="assets/img/portfolio/bgs.png" alt="..." />
-                        </div>
-                    </div>
-                </div>
+            <img class="img-fluid rounded shadow" src="assets/img/portfolio/is.png" alt="..." />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Experience Plus Section-->
+  <section class="page-section portfolio bg-primary mb-0" id="experienceplus">
+    <!-- Local style for this section only -->
+    <style>
+      /* Only affects hover overlays in this section */
+      #experienceplus .portfolio-item .portfolio-item-caption {
+        background-color: rgba(233, 94, 85, 0.9);
+        /* coral tone */
+      }
+    </style>
+    <div class="container">
+      <!-- Experience Plus Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Experience Plus</h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Experience Grid Items-->
+      <div class="row justify-content-center">
+        <!-- Portfolio Item 4-->
+        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
             </div>
-        </section>
-        <!-- About Section-->
-        <section class="page-section bg-white text-secondary mb-0" id="about">
-            <div class="container position-relative">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">About Me</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-dark">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Floating icons -->
-                <i class="fa-solid fa-brain"
-                   style="position:absolute; top:-60px; left:10px; font-size:5rem; color:#aee1f9; animation:floaty 3.5s ease-in-out infinite;"></i>
-                <!-- About Section Content-->
-                <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">I’m a neuroscientist turned AI researcher, fascinated by how humans and machines perceive, reason, and learn.
-                    <br><br>After completing my Ph.D. in Neuroscience at EPFL, I shifted toward applied AI and system design at UNIL, where I focus on projects combining machine learning, human-centered design, and data-driven decision-making.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">My work explores the intersection of cognition, perception, and intelligent systems — from studying how the brain interprets sensory information to designing algorithms that emulate human-like understanding.
-                    <br><br>I enjoy work that connects cognition and algorithms, research and application, humans and technology.</p></div>
-                </div>
-                <!-- Floating icons -->
-                <i class="fa-solid fa-bug"
-                   style="position:absolute; bottom:-60px; right:10px; font-size:5rem; color:#f9a5a5; animation:floaty 4s ease-in-out infinite;"></i>
+            <img class="img-fluid rounded shadow" src="assets/img/portfolio/ts.png" alt="..." />
+          </div>
+        </div>
+        <!-- Portfolio Item 5-->
+        <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
             </div>
-        </section>
-       <!-- Education Section-->
-        <section class="page-section bg-primary text-white mb-0" id="education">
-            <div class="container">
-                <!-- Education Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Education</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Education Section Content-->
-                    <div class="row justify-content-center">
-                        <div class="col-lg-10 text-center">
-                            <img class="img-fluid" src="assets/img/edu/edulato.svg" alt="..." />
-                            <!-- <img class="img-fluid rounded shadow" src="assets/img/edu/edul.png" alt="..." /> -->
-                        </div>
-                    </div>
-                    <!-- Floating clickable university logos -->
-                    <div class="d-flex justify-content-center align-items-center flex-wrap mt-4" style="gap: 35px; margin-left: -10px;"">
-                      <a href="https://www.unil.ch/" target="_blank" style="margin: 10px;">
-                        <img src="assets/img/logo/unilogo.png" alt="..."
-                             style="width:140px; animation: floaty 3.5s ease-in-out infinite;">
-                      </a>
-                      <a href="https://www.epfl.ch/" target="_blank" style="margin: 10px;">
-                        <img src="assets/img/logo/epflogo.png" alt="..."
-                             style="width:140px; animation: floaty 3s ease-in-out infinite;">
-                      </a>
-                      <a href="https://w3.bilkent.edu.tr/bilkent/" target="_blank" style="margin: 10px;">
-                        <img src="assets/img/logo/bulogo.png" alt="..."
-                             style="width:120px; animation: floaty 4s ease-in-out infinite;">
-                      </a>
-                      <a href="https://www.maastrichtuniversity.nl/" target="_blank" style="margin: 10px;">
-                        <img src="assets/img/logo/umlogo.png" alt="..."
-                             style="width:80px; animation: floaty 3.8s ease-in-out infinite;">
-                      </a>
-                    </div>
-                </div>
+            <img class="img-fluid rounded shadow" src="assets/img/portfolio/fs.png" alt="..." />
+          </div>
+        </div>
+        <!-- Portfolio Item 6-->
+        <div class="col-md-6 col-lg-4">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
             </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer text-center">
-                <!-- <div class="container">
+            <img class="img-fluid rounded shadow" src="assets/img/portfolio/bgs.png" alt="..." />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About Section-->
+  <section class="page-section bg-white text-secondary mb-0" id="about">
+    <div class="container position-relative">
+      <!-- About Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">About Me</h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-dark">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Floating icons -->
+      <i class="fa-solid fa-brain"
+        style="position:absolute; top:-60px; left:10px; font-size:5rem; color:#aee1f9; animation:floaty 3.5s ease-in-out infinite;"></i>
+      <!-- About Section Content-->
+      <div class="row">
+        <div class="col-lg-4 ms-auto">
+          <p class="lead">I’m a neuroscientist turned AI researcher, fascinated by how humans and machines perceive,
+            reason, and learn.
+            <br><br>After completing my Ph.D. in Neuroscience at EPFL, I shifted toward applied AI and system design at
+            UNIL, where I focus on projects combining machine learning, human-centered design, and data-driven
+            decision-making.
+          </p>
+        </div>
+        <div class="col-lg-4 me-auto">
+          <p class="lead">My work explores the intersection of cognition, perception, and intelligent systems — from
+            studying how the brain interprets sensory information to designing algorithms that emulate human-like
+            understanding.
+            <br><br>I enjoy work that connects cognition and algorithms, research and application, humans and
+            technology.
+          </p>
+        </div>
+      </div>
+      <!-- Floating icons -->
+      <i class="fa-solid fa-bug"
+        style="position:absolute; bottom:-60px; right:10px; font-size:5rem; color:#f9a5a5; animation:floaty 4s ease-in-out infinite;"></i>
+    </div>
+  </section>
+  <!-- Education Section-->
+  <section class="page-section bg-primary text-white mb-0" id="education">
+    <div class="container">
+      <!-- Education Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-white mb-0">Education</h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Education Section Content-->
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+          <img class="img-fluid" src="assets/img/edu/edulato.svg" alt="..." />
+          <!-- <img class="img-fluid rounded shadow" src="assets/img/edu/edul.png" alt="..." /> -->
+        </div>
+      </div>
+      <!-- Floating clickable university logos -->
+      <div class="d-flex justify-content-center align-items-center flex-wrap mt-4"
+        style="gap: 35px; margin-left: -10px;"">
+                      <a href=" https://www.unil.ch/" target="_blank" style="margin: 10px;">
+        <img src="assets/img/logo/unilogo.png" alt="..."
+          style="width:140px; animation: floaty 3.5s ease-in-out infinite;">
+        </a>
+        <a href="https://www.epfl.ch/" target="_blank" style="margin: 10px;">
+          <img src="assets/img/logo/epflogo.png" alt="..."
+            style="width:140px; animation: floaty 3s ease-in-out infinite;">
+        </a>
+        <a href="https://w3.bilkent.edu.tr/bilkent/" target="_blank" style="margin: 10px;">
+          <img src="assets/img/logo/bulogo.png" alt="..."
+            style="width:120px; animation: floaty 4s ease-in-out infinite;">
+        </a>
+        <a href="https://www.maastrichtuniversity.nl/" target="_blank" style="margin: 10px;">
+          <img src="assets/img/logo/umlogo.png" alt="..."
+            style="width:80px; animation: floaty 3.8s ease-in-out infinite;">
+        </a>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- Footer-->
+  <footer class="footer text-center">
+    <!-- <div class="container">
                     <div class="row">
 
                     </div>
                 </div> -->
-        </footer>
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Gizay Ceylan, 2025. All rights reserved.</small></div>
-            <div class="container"><small>Initial design by <a href="http://startbootstrap.com">Start Bootstrap</a>.</small></div>
-        </div>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Neuroscience</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/nsc.png" alt="..." style="max-width: 50%;"/>
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">My academical research projects in human vision, perception, and decision-making.</p>
-                                    <!-- Buttons to Sub-Modals -->
-                                    <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
-                                        <a href="#" class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#phdModal">PhD @ EPFL</a>
-                                        <a href="#" class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#mscModal">MSc @ Bilkent</a>
-                                    </div>
-                                    <!-- Close Button -->
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  </footer>
+  <!-- Copyright Section-->
+  <div class="copyright py-4 text-center text-white">
+    <div class="container"><small>Copyright &copy; Gizay Ceylan, 2025. All rights reserved.</small></div>
+    <div class="container"><small>Initial design by <a href="http://startbootstrap.com">Start Bootstrap</a>.</small>
+    </div>
+  </div>
+  <!-- Portfolio Modals-->
+  <!-- Portfolio Modal 1-->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
+            aria-label="Close"></button></div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Neuroscience</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                  <div class="divider-custom-line"></div>
                 </div>
-            </div>
-        </div>
-        <!-- Secondary Modal: PhD @ EPFL -->
-        <div class="portfolio-modal modal fade" id="phdModal" tabindex="-1" aria-labelledby="phdModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-              <div class="modal-header border-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/nsc.png" alt="..."
+                  style="max-width: 50%;" />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4">My academical research projects in human vision, perception, and decision-making.</p>
+                <!-- Buttons to Sub-Modals -->
+                <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+                  <a href="#" class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal"
+                    data-bs-target="#phdModal">PhD @ EPFL</a>
+                  <a href="#" class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal"
+                    data-bs-target="#mscModal">MSc @ Bilkent</a>
+                </div>
+                <!-- Close Button -->
+                <button class="btn btn-primary" data-bs-dismiss="modal">
+                  <i class="fas fa-xmark fa-fw"></i>
+                  Close Window
+                </button>
               </div>
-        
-              <div class="modal-body text-center pb-5">
-                <div class="container">
-                  <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                      <!-- Title -->
-                      <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">PhD @ EPFL</h2>
-        
-                      <!-- Icon Divider -->
-                      <div class="divider-custom">
-                        <div class="divider-custom-line"></div>
-                        <div class="divider-custom-icon"><i class="fas fa-university"></i></div>
-                        <div class="divider-custom-line"></div>
-                      </div>
-        
-                      <!-- Portfolio Modal - Text -->
-                      <!-- <p class="text-start"><strong>Thesis:</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Secondary Modal: PhD @ EPFL -->
+  <div class="portfolio-modal modal fade" id="phdModal" tabindex="-1" aria-labelledby="phdModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <!-- Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">PhD @ EPFL</h2>
+
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-university"></i></div>
+                  <div class="divider-custom-line"></div>
+                </div>
+
+                <!-- Portfolio Modal - Text -->
+                <!-- <p class="text-start"><strong>Thesis:</strong></p>
                       <ul class="text-start">
                         <li><a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">Serial Dependence in Human Visual Perception and Decision-Making</a></li>
                       </ul> -->
 
-                      <p class="text-start"><strong>Thesis:</strong></p>
-                        <ul class="text-start">
-                          <li class="pub-item">
-                            <img src="assets/img/pubs/diploma.png" class="pub-thumb" alt="Thesis thumbnail">
-                            <a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">
-                              Serial Dependence in Human Visual Perception and Decision-Making
-                            </a>
-                          </li>
-                        </ul>
-  
+                <p class="text-start"><strong>Thesis:</strong></p>
+                <ul class="text-start">
+                  <li class="pub-item">
+                    <img src="assets/img/pubs/diploma.png" class="pub-thumb" alt="Thesis thumbnail">
+                    <a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">
+                      Serial Dependence in Human Visual Perception and Decision-Making
+                    </a>
+                  </li>
+                </ul>
 
-                      <p class="text-start"><strong>Webinar:</strong></p>
-                      <ul class="text-start">
-                          <li class="pub-item">
-                              <img src="assets/img/pubs/webinar.jpg" class="pub-thumb" alt="Webinar thumbnail">
-                              <a href="https://aptc2021.github.io/" target="_blank">Attention, Perception, and Temporal Context
-                            </a>
-                          </li>
-                      </ul>
-        
-                      <!-- <p class="text-start"><strong>Papers:</strong></p>
+
+                <p class="text-start"><strong>Webinar:</strong></p>
+                <ul class="text-start">
+                  <li class="pub-item">
+                    <img src="assets/img/pubs/webinar.jpg" class="pub-thumb" alt="Webinar thumbnail">
+                    <a href="https://aptc2021.github.io/" target="_blank">Attention, Perception, and Temporal Context
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- <p class="text-start"><strong>Papers:</strong></p>
                       <ul class="text-start">                 
                         <li><a href="#" target="_blank">Dissecting serial dependence: the effect of the response type, stimulus-response mapping, and retention interval</a></li>
                         <li><a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">The format of the internal representations in serial dependence</a></li>
@@ -472,258 +524,276 @@
                         <li><a href="https://doi.org/10.1016/j.cognition.2022.105211" target="_blank">Feature distribution learning by passive exposure</a></li>
                         <li><a href="https://doi.org/10.1016/j.cognition.2021.104709" target="_blank">Serial dependence does not originate from low-level visual processing</a></li>
                       </ul> -->
-                    <p class="text-start"><strong>Papers:</strong></p>
-                    <ul class="text-start pub-list">
-                    
-                      <!-- Paper 1 -->
-                      <li class="pub-item">
-                        <img src="assets/img/pubs/remap.png" class="pub-thumb" alt="">
-                        <a href="#" target="_blank">
-                          Dissecting serial dependence: ...
-                        </a>
-                      </li>
-                    
-                      <!-- Paper 2 -->
-                      <!-- <li class="pub-item">
-                        <img src="assets/img/pubs/format.png" class="pub-thumb" alt="">
-                        <a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">
-                          The format of the internal representations in serial dependence
-                        </a>
-                      </li> -->
+                <p class="text-start"><strong>Papers:</strong></p>
+                <ul class="text-start pub-list">
 
-                      <li class="pub-item">
-                          <img src="assets/img/pubs/format.png" class="pub-thumb" alt="">
-                          <div>
-                            <a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">
-                              The format of the internal representations in serial dependence
-                            </a>
-                        
-                            <div class="mt-1">
-                              <a href="https://github.com/gizayceylan/MotOri_EEG" target="_blank" style="font-size:0.9rem; text-decoration:none;">
-                                <i class="fas fa-code-branch"></i> Repo 
-                              </a>
-                            </div>
-                          </div>
-                      </li>  
-                    
-                      <!-- Paper 3 -->
-                      <li class="pub-item">
-                        <img src="assets/img/pubs/attrep.png" class="pub-thumb" alt="">
-                        <a href="https://doi.org/10.1167/jov.23.6.8" target="_blank">
-                          Attractive and repulsive serial dependence: ...
-                        </a>
-                      </li>
-                    
-                      <!-- Paper 4 -->
-                      <li class="pub-item">
-                        <img src="assets/img/pubs/review.png" class="pub-thumb" alt="">
-                        <a href="https://doi.org/10.1167/jov.23.1.9" target="_blank">
-                          Serial dependence in visual perception: A review
-                        </a>
-                      </li>
-                    
-                      <!-- Paper 5 -->
-                      <li class="pub-item">
-                        <img src="assets/img/pubs/fdl.jpg" class="pub-thumb" alt="">
-                        <a href="https://doi.org/10.1016/j.cognition.2022.105211" target="_blank">
-                          Feature distribution learning by passive exposure
-                        </a>
-                      </li>
-                    
-                      <!-- Paper 6 -->
-                      <li class="pub-item">
-                        <img src="assets/img/pubs/task.jpg" class="pub-thumb" alt="">
-                        <a href="https://doi.org/10.1016/j.cognition.2021.104709" target="_blank">
-                          Serial dependence does not originate from low-level visual processing
-                        </a>
-                      </li>
-                    
-                    </ul>
+                  <!-- Paper 1 -->
+                  <li class="pub-item">
+                    <img src="assets/img/pubs/remap.png" class="pub-thumb" alt="">
+                    <a href="#" target="_blank">
+                      Dissecting serial dependence: ...
+                    </a>
+                  </li>
 
-                      <p class="text-start"><strong>Conferences:</strong></p>
-                      <ul class="text-start">
-                        <li>VSS 2023 — Talk: <a href="https://doi.org/10.1167/jov.23.9.5392" target="_blank">Expectations and cognitive control modulate history biases in perceptual decisions</a></li>
-                        <li>IVLS 2022 — Talk: <a href="https://infoscience.epfl.ch/record/300377" target="_blank">Serial dependence by mental imagery</a></li>
-                        <li>ECVP 2022 — Poster: <a href="https://infoscience.epfl.ch/record/300377" target="_blank">Serial dependence by mental imagery</a></li>
-                        <li>ICON 2022 — Poster: <a href="#" target="_blank">A study on the relationship between history effects in perceptual decisions and brain rhythms</a></li>
-                        <li>ECVP 2021 — Poster: <a href="https://infoscience.epfl.ch/record/291191" target="_blank">The time course of serial dependence: ...</a></li>  
-                        <li>ECVP 2021 — Poster: <a href="https://infoscience.epfl.ch/record/291186" target="_blank">Serial dependence under memory load</a></li>
-                        <li>VSS 2021 — Poster: <a href="https://doi.org/10.1167/jov.21.9.2495" target="_blank">Serial dependence is related to the task and not the stimulus</a></li>
-                        <li>VSS 2021 — Poster: <a href="https://doi.org/10.1167/jov.21.9.2201" target="_blank">Perceptual decisions under stable visual input: ...</a></li>
-                        <li>VSS 2021 — Poster: <a href="https://doi.org/10.1167/jov.21.9.2495" target="_blank">Feature distribution learning by passive exposure</a></li>
-                        <li>FENS 2020 — Poster: <a href="https://infoscience.epfl.ch/record/291209" target="_blank">Serial dependence across features and objects</a></li>
-                      </ul>
-        
-                      <!-- Close Button -->
-                      <button class="btn btn-primary" data-bs-dismiss="modal">
-                        <i class="fas fa-xmark fa-fw"></i> Close Window
-                      </button>
+                  <!-- Paper 2 -->
+                  <li class="pub-item">
+                    <img src="assets/img/pubs/format.png" class="pub-thumb" alt="">
+                    <div>
+                      <a href="https://infoscience.epfl.ch/handle/20.500.14299/207411" target="_blank">
+                        The format of the internal representations in serial dependence
+                      </a>
+
+                      <div class="mt-1">
+                        <a href="https://github.com/gizayceylan/MotOri_EEG" target="_blank"
+                          style="font-size:0.9rem; text-decoration:none;">
+                          <i class="fas fa-code-branch"></i> Repo
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </li>
+
+                  <!-- Paper 3 -->
+                  <li class="pub-item">
+                    <img src="assets/img/pubs/attrep.png" class="pub-thumb" alt="">
+                    <a href="https://doi.org/10.1167/jov.23.6.8" target="_blank">
+                      Attractive and repulsive serial dependence: ...
+                    </a>
+                  </li>
+
+                  <!-- Paper 4 -->
+                  <li class="pub-item">
+                    <img src="assets/img/pubs/review.png" class="pub-thumb" alt="">
+                    <a href="https://doi.org/10.1167/jov.23.1.9" target="_blank">
+                      Serial dependence in visual perception: A review
+                    </a>
+                  </li>
+
+                  <!-- Paper 5 -->
+                  <li class="pub-item">
+                    <img src="assets/img/pubs/fdl.jpg" class="pub-thumb" alt="">
+                    <a href="https://doi.org/10.1016/j.cognition.2022.105211" target="_blank">
+                      Feature distribution learning by passive exposure
+                    </a>
+                  </li>
+
+                  <!-- Paper 6 -->
+                  <li class="pub-item">
+                    <img src="assets/img/pubs/task.jpg" class="pub-thumb" alt="">
+                    <a href="https://doi.org/10.1016/j.cognition.2021.104709" target="_blank">
+                      Serial dependence does not originate from low-level visual processing
+                    </a>
+                  </li>
+
+                </ul>
+
+                <p class="text-start"><strong>Conferences:</strong></p>
+                <ul class="text-start">
+                  <li>VSS 2023 — Talk: <a href="https://doi.org/10.1167/jov.23.9.5392" target="_blank">Expectations and
+                      cognitive control modulate history biases in perceptual decisions</a></li>
+                  <li>IVLS 2022 — Talk: <a href="https://infoscience.epfl.ch/record/300377" target="_blank">Serial
+                      dependence by mental imagery</a></li>
+                  <li>ECVP 2022 — Poster: <a href="https://infoscience.epfl.ch/record/300377" target="_blank">Serial
+                      dependence by mental imagery</a></li>
+                  <li>ICON 2022 — Poster: <a href="#" target="_blank">A study on the relationship between history
+                      effects in perceptual decisions and brain rhythms</a></li>
+                  <li>ECVP 2021 — Poster: <a href="https://infoscience.epfl.ch/record/291191" target="_blank">The time
+                      course of serial dependence: ...</a></li>
+                  <li>ECVP 2021 — Poster: <a href="https://infoscience.epfl.ch/record/291186" target="_blank">Serial
+                      dependence under memory load</a></li>
+                  <li>VSS 2021 — Poster: <a href="https://doi.org/10.1167/jov.21.9.2495" target="_blank">Serial
+                      dependence is related to the task and not the stimulus</a></li>
+                  <li>VSS 2021 — Poster: <a href="https://doi.org/10.1167/jov.21.9.2201" target="_blank">Perceptual
+                      decisions under stable visual input: ...</a></li>
+                  <li>VSS 2021 — Poster: <a href="https://doi.org/10.1167/jov.21.9.2495" target="_blank">Feature
+                      distribution learning by passive exposure</a></li>
+                  <li>FENS 2020 — Poster: <a href="https://infoscience.epfl.ch/record/291209" target="_blank">Serial
+                      dependence across features and objects</a></li>
+                </ul>
+
+                <!-- Close Button -->
+                <button class="btn btn-primary" data-bs-dismiss="modal">
+                  <i class="fas fa-xmark fa-fw"></i> Close Window
+                </button>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Secondary Modal: MSc @ Bilkent -->
-        <div class="portfolio-modal modal fade" id="mscModal" tabindex="-1" aria-labelledby="mscModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-              <div class="modal-header border-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-        
-              <div class="modal-body text-center pb-5">
-                <div class="container">
-                  <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                      <!-- Title -->
-                      <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">MSc @ Bilkent University</h2>
-        
-                      <!-- Icon Divider -->
-                      <div class="divider-custom">
-                        <div class="divider-custom-line"></div>
-                        <div class="divider-custom-icon"><i class="fas fa-university"></i></div>
-                        <div class="divider-custom-line"></div>
-                      </div>
-        
-                      <!-- Portfolio Modal - Text -->
-                      <!-- <p class="text-start"><strong>Thesis:</strong></p>
+  <!-- Secondary Modal: MSc @ Bilkent -->
+  <div class="portfolio-modal modal fade" id="mscModal" tabindex="-1" aria-labelledby="mscModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <!-- Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">MSc @ Bilkent University</h2>
+
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-university"></i></div>
+                  <div class="divider-custom-line"></div>
+                </div>
+
+                <!-- Portfolio Modal - Text -->
+                <!-- <p class="text-start"><strong>Thesis:</strong></p>
                       <ul class="text-start">
                         <li><a href="http://hdl.handle.net/11693/49513" target="_blank">Task Difficulty and Expertise Mediate the Effects of Roving on Perceptual Performance</a></li>
                       </ul> -->
 
-                      <p class="text-start"><strong>Thesis:</strong></p>
-                        <ul class="text-start">
-                          <li class="pub-item">
-                            <img src="assets/img/pubs/mscnsc.png" class="pub-thumb" alt="Thesis thumbnail">
-                            <a href="http://hdl.handle.net/11693/49513" target="_blank">
-                              Task Difficulty and Expertise Mediate the Effects of Roving on Perceptual Performance
-                            </a>
-                          </li>
-                        </ul>  
+                <p class="text-start"><strong>Thesis:</strong></p>
+                <ul class="text-start">
+                  <li class="pub-item">
+                    <img src="assets/img/pubs/mscnsc.png" class="pub-thumb" alt="Thesis thumbnail">
+                    <a href="http://hdl.handle.net/11693/49513" target="_blank">
+                      Task Difficulty and Expertise Mediate the Effects of Roving on Perceptual Performance
+                    </a>
+                  </li>
+                </ul>
 
-                      <p class="text-start"><strong>Conference:</strong></p>
-                      <ul class="text-start">
-                          <li>VSS 2018 — Poster: <a href="https://doi.org/10.1167/18.10.754" target="_blank">Task Difficulty Mediates the Effects of Roving on Performance</a></li>
-                      </ul>
-        
-                      <!-- Close Button -->
-                      <button class="btn btn-primary" data-bs-dismiss="modal">
-                        <i class="fas fa-xmark fa-fw"></i> Close Window
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <p class="text-start"><strong>Conference:</strong></p>
+                <ul class="text-start">
+                  <li>VSS 2018 — Poster: <a href="https://doi.org/10.1167/18.10.754" target="_blank">Task Difficulty
+                      Mediates the Effects of Roving on Performance</a></li>
+                </ul>
+
+                <!-- Close Button -->
+                <button class="btn btn-primary" data-bs-dismiss="modal">
+                  <i class="fas fa-xmark fa-fw"></i> Close Window
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <!-- Portfolio Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Deep Learning</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/dl.png" alt="..." style="max-width: 50%;"/>
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">My deep learning projects focusing on multimodal perception, neural decoding, and computational vision modeling in neuroscience.</p>
-                                    
-                                    
-                                  <!-- ===== Neuromatch Academy 2024 ===== -->
-                                  <div class="text-start mb-4">
-                                    <h4 class="text-secondary mb-2"><i class="fas fa-brain me-2"></i>Neuromatch Academy 2024</h4>
-                                    <p><strong>Multimodal Emotion Detection using Agent-based Modeling</strong></p>
-                                    <ul>
-                                      <li>Developed a hybrid system integrating deep learning and LLM agents for emotion detection from audio and text.</li>
-                                      <li>Leveraged Hugging Face transformers for data processing and exploration.</li>
-                                      <li>Implemented CNN-LSTM models for each modality, fused via a reasoning-capable LLM agent (<a href="https://www.langchain.com/" target="_blank">LangChain</a>).</li>
-                                      <li>Showcased a reasoning-based integration framework for multimodal emotion detection.</li>
-                                    </ul>
-                                    <p class="small">
-                                      <!-- <a href="#" target="_blank">GitHub Repo for Audio model</a><br> -->
-                                      <a href="#" target="_blank">Repo (tbu)</a><br>
-                                      #python  #pytorch  #huggingface  #langchain  #googlecolab
-                                    </p>
-                                  </div>
-                    
-                                  <!-- ===== Neuromatch Academy 2022 ===== -->
-                                  <div class="text-start mb-4">
-                                    <h4 class="text-secondary mb-2"><i class="fas fa-brain me-2"></i>Neuromatch Academy 2022</h4>
-                                    <p><strong>Transfer Learning for Motor Imagery Decoding in ECoG</strong></p>
-                                    <ul>
-                                      <li>Implemented CNN and LSTM models trained on ECoG recordings of real motor execution.</li>
-                                      <li>Applied transfer learning to decode imagined motor actions from ECoG data.</li>
-                                      <li>Demonstrated superior generalization of temporal dynamics in motor imagery decoding.</li>
-                                    </ul>
-                                    <p class="small">
-                                      <a href="#" target="_blank">Repo (tbu)</a><br>
-                                      #python  #pytorch  #googlecolab
-                                    </p>
-                                  </div>
-                    
-                                  <!-- ===== Internship @ EPFL ===== -->
-                                  <div class="text-start mb-4">
-                                    <h4 class="text-secondary mb-2"><i class="fas fa-flask me-2"></i>Internship @ EPFL</h4>
-                                    <p><strong>Modeling Visual Crowding and Uncrowding using Capsule Neural Networks</strong></p>
-                                    <ul>
-                                      <li>Contributed to model optimization and co-presented findings at ECVP 2018.</li>
-                                      <li>Highlighted the importance of spatial relationships in human visual perception.</li>
-                                    </ul>
-                                    <p class="small">
-                                        <a href="https://doi.org/10.1371/journal.pcbi.1008017" target="_blank">Related article by Doerig et al.</a><br>
-                                        #python  #tensorflow  #vscode  #googlesuit</p>
-                                  </div>
-                                    
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 2-->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
+            aria-label="Close"></button></div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Deep Learning</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                  <div class="divider-custom-line"></div>
                 </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 3-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Information Systems</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/is.png" alt="..." style="max-width: 50%";/>
-                                    
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">My applied IS projects integrating AI, machine learning, software engineering, and UX design.</p>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/dl.png" alt="..."
+                  style="max-width: 50%;" />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4">My deep learning projects focusing on multimodal perception, neural decoding, and
+                  computational vision modeling in neuroscience.</p>
 
-                                  <!-- ===== Semester Project @ Applied AI Lab ===== -->
-                                  <!-- <div class="text-start mb-4">
+
+                <!-- ===== Neuromatch Academy 2024 ===== -->
+                <div class="text-start mb-4">
+                  <h4 class="text-secondary mb-2"><i class="fas fa-brain me-2"></i>Neuromatch Academy 2024</h4>
+                  <p><strong>Multimodal Emotion Detection using Agent-based Modeling</strong></p>
+                  <ul>
+                    <li>Developed a hybrid system integrating deep learning and LLM agents for emotion detection from
+                      audio and text.</li>
+                    <li>Leveraged Hugging Face transformers for data processing and exploration.</li>
+                    <li>Implemented CNN-LSTM models for each modality, fused via a reasoning-capable LLM agent (<a
+                        href="https://www.langchain.com/" target="_blank">LangChain</a>).</li>
+                    <li>Showcased a reasoning-based integration framework for multimodal emotion detection.</li>
+                  </ul>
+                  <p class="small">
+                    <!-- <a href="#" target="_blank">GitHub Repo for Audio model</a><br> -->
+                    <a href="#" target="_blank">Repo (tbu)</a><br>
+                    #python #pytorch #huggingface #langchain #googlecolab
+                  </p>
+                </div>
+
+                <!-- ===== Neuromatch Academy 2022 ===== -->
+                <div class="text-start mb-4">
+                  <h4 class="text-secondary mb-2"><i class="fas fa-brain me-2"></i>Neuromatch Academy 2022</h4>
+                  <p><strong>Transfer Learning for Motor Imagery Decoding in ECoG</strong></p>
+                  <ul>
+                    <li>Implemented CNN and LSTM models trained on ECoG recordings of real motor execution.</li>
+                    <li>Applied transfer learning to decode imagined motor actions from ECoG data.</li>
+                    <li>Demonstrated superior generalization of temporal dynamics in motor imagery decoding.</li>
+                  </ul>
+                  <p class="small">
+                    <a href="#" target="_blank">Repo (tbu)</a><br>
+                    #python #pytorch #googlecolab
+                  </p>
+                </div>
+
+                <!-- ===== Internship @ EPFL ===== -->
+                <div class="text-start mb-4">
+                  <h4 class="text-secondary mb-2"><i class="fas fa-flask me-2"></i>Internship @ EPFL</h4>
+                  <p><strong>Modeling Visual Crowding and Uncrowding using Capsule Neural Networks</strong></p>
+                  <ul>
+                    <li>Contributed to model optimization and co-presented findings at ECVP 2018.</li>
+                    <li>Highlighted the importance of spatial relationships in human visual perception.</li>
+                  </ul>
+                  <p class="small">
+                    <a href="https://doi.org/10.1371/journal.pcbi.1008017" target="_blank">Related article by Doerig et
+                      al.</a><br>
+                    #python #tensorflow #vscode #googlesuit
+                  </p>
+                </div>
+
+                <button class="btn btn-primary" data-bs-dismiss="modal">
+                  <i class="fas fa-xmark fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 3-->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
+            aria-label="Close"></button></div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Information Systems</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/is.png" alt="..." style="max-width: 50%"
+                  ; />
+
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4">My applied IS projects integrating AI, machine learning, software engineering, and UX
+                  design.</p>
+
+                <!-- ===== Semester Project @ Applied AI Lab ===== -->
+                <!-- <div class="text-start mb-4">
                                     <h4 class="text-secondary mb-2"><i class="fas fa-brain me-2"></i>Multimodal Agentic Systems @ Applied AI Lab</h4>
                                     <p><strong>Agentic System for Content Authenticity Verification</strong></p>
                                     <ul>
@@ -735,9 +805,9 @@
                                       #python #langchain #huggingface #openai #googlecolab
                                     </p>
                                   </div> -->
-                    
-                                  <!-- ===== IxD @ UNIL ===== -->
-                                  <!-- <div class="text-start mb-4">
+
+                <!-- ===== IxD @ UNIL ===== -->
+                <!-- <div class="text-start mb-4">
                                     <h4 class="text-secondary mb-2"><i class="fas fa-heart-pulse me-2"></i>IxD @ UNIL</h4>
                                     <p><strong>Mobile Platform for Chronic Disease Monitoring</strong></p>
                                     <ul>
@@ -749,9 +819,9 @@
                                       #flutterflow #qualtrics #python #googlecolab
                                     </p>
                                   </div> -->
-                    
-                                  <!-- ===== Recommender System @ UNIL ===== -->
-                                  <!-- <div class="text-start mb-4">
+
+                <!-- ===== Recommender System @ UNIL ===== -->
+                <!-- <div class="text-start mb-4">
                                     <h4 class="text-secondary mb-2"><i class="fas fa-book me-2"></i>Recommender System @ UNIL</h4>
                                     <p><strong>Library Book Recommendation System</strong></p>
                                     <ul>
@@ -766,9 +836,9 @@
                                     </p>
                                   </div> -->
 
-                                    
-                                  <!-- ===== Web App @ UNIL ===== -->
-                                  <!-- <div class="text-start mb-4">
+
+                <!-- ===== Web App @ UNIL ===== -->
+                <!-- <div class="text-start mb-4">
                                     <h4 class="text-secondary mb-2"><i class="fas fa-utensils me-2"></i>Web App @ UNIL</h4>
                                     <p><strong>Daily Meal Planner Web Application</strong></p>
                                     <ul>
@@ -782,539 +852,552 @@
                                     </p>
                                   </div> -->
 
-                                  <!-- ===== Semester Project @ Applied AI Lab ===== -->
-                                  <div class="container text-start mb-4">
-                                      <div class="row g-3 align-items-center">
-                                        <!-- Left block: image + links + tags -->
-                                        <div class="col-12 col-md-4 text-center">
-                                          <img src="assets/img/projects/fnews.png"
-                                               style="width:140px; height:140px;"
-                                               alt="FakeNews thumbnail"
-                                               class="mb-2">
-                                          <p class="small mb-1">
-                                            <a href="https://github.com/gizayceylan/FakeNews" target="_blank">Repo</a>
-                                          </p>
-                                          <p class="small text-muted mb-0">
-                                            #python #langchain #huggingface #openai #googlecolab
-                                        </div>
-                                        <!-- Right block: title + bullets -->
-                                        <div class="col-12 col-md-8">
-                                          <h4 class="text-secondary mb-1"><i class="fas fa-brain me-2"></i>Agentic Systems @ AAI Lab</h4>
-                                          <p><strong>Agentic System for Content Authenticity Verification</strong></p>  
-                                          <ul class="mb-2">
-                                            <li>Developing a hybrid VLM and LLM based system for verifying multimodal content authenticity using reasoning and perception modules.</li>
-                                            <li>Exploring LangChain-based pipelines for cross-modal verification and user-facing explainability.</li>
-                                          </ul>
-                                        </div>
-                                      </div>
-                                    </div>  
-                                                       
-                                    <!-- ===== IxD @ UNIL ===== -->
-                                    <div class="container text-start mb-4">
-                                      <div class="row g-3 align-items-center">
-                                        <!-- Left block: image + links + tags -->
-                                        <div class="col-12 col-md-4 text-center">
-                                          <img src="assets/img/projects/ixd.png"
-                                               style="width:140px; height:140px;"
-                                               alt="IxD thumbnail"
-                                               class="mb-2">
-                                          <p class="small mb-1">
-                                            <a href="https://drive.google.com/file/d/1mSQzypgDa6M0Bf49ytqdsz6zXJuDONsL/view?usp=drive_link" target="_blank">▶ Demo </a>
-                                          </p>
-                                          <p class="small text-muted mb-0">
-                                            #flutterflow #qualtrics #python #googlecolab
-                                        </div>
-                                        <!-- Right block: title + bullets -->
-                                        <div class="col-12 col-md-8">
-                                          <h4 class="text-secondary mb-1"><i class="fas fa-heart-pulse me-2"></i>IxD @ UNIL</h4>
-                                          <p><strong>Mobile Platform for Chronic Disease Monitoring</strong></p>  
-                                          <ul class="mb-2">
-                                            <li>Designed a remote monitoring platform for chronic patients and healthcare providers.</li>
-                                            <li>Built high-fidelity interactive prototype and tested usability with patients and healthcare professionals.</li>
-                                          </ul>
-                                        </div>
-                                      </div>
-                                    </div>  
-                                                                                
-                                    <!-- ===== Recommender System @ UNIL ===== -->
-                                    <div class="container text-start mb-4">
-                                      <div class="row g-3 align-items-center">
-                                        <!-- Left block: image + links + tags -->
-                                        <div class="col-12 col-md-4 text-center">
-                                          <img src="assets/img/projects/bert.png"
-                                               style="width:140px; height:140px;"
-                                               alt="BERT thumbnail"
-                                               class="mb-2">
-                                          <p class="small mb-1">
-                                            <a href="https://github.com/gizayceylan/Kagglers" target="_blank">Repo</a> |
-                                            <a href="https://www.youtube.com/channel/UCyc3icUXnA_le8F8MbSIOIA" target="_blank">▶ Demo</a>
-                                          </p>
-                                          <p class="small text-muted mb-0">
-                                            #python #pytorch #bert #googlecolab
-                                          </p>
-                                        </div>
-                                        <!-- Right block: title + bullets -->
-                                        <div class="col-12 col-md-8">
-                                          <h4 class="text-secondary mb-1"><i class="fas fa-book me-2"></i>Recommender System @ UNIL</h4>
-                                          <p><strong>Library Book Recommendation System</strong></p>
-                                          <ul class="mb-2">
-                                            <li>Built a personalized recommendation engine using natural language embeddings and collaborative filtering.</li>
-                                            <li>Trained models with multilingual metadata and French book descriptions.</li>
-                                          </ul>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <!-- ===== Web App @ UNIL ===== -->
-                                    <div class="container text-start mb-4">
-                                      <div class="row g-3 align-items-center">
-                                        <!-- Left side: Image + Repo/Demo -->
-                                        <div class="col-12 col-md-4 text-center">
-                                          <img src="assets/img/projects/recipe.png" class="proj-thumb" alt="Web App thumbnail"
-                                               style="width:140px; height:140px;"
-                                               alt="RecipE thumbnail"
-                                               class="mb-2">
-                                          <p class="small mb-1">
-                                            <a href="https://www.youtube.com/playlist?list=PLV4qz_xKv-u8FR3tNzKVHfveeyhF7wWSF" target="_blank">▶ Demo</a>
-                                          </p>
-                                          <p class="small text-muted mb-0">
-                                            #java #javascript #css #html #intellij
-                                          </p>
-                                        </div>
-                                        <!-- Right side: Text -->
-                                        <div class="col-12 col-md-8">
-                                          <h4 class="text-secondary mb-1"><i class="fas fa-utensils me-2"></i>Web App @ UNIL</h4>
-                                          <p><strong>Daily Meal Planner Web Application</strong></p>
-                                          <ul class="mb-2">
-                                            <li>Developed a full-stack web app for generating meal plans with a dynamic Java backend and interactive UI.</li>
-                                            <li>Implemented RESTful endpoints and frontend integration for live meal plan generation.</li>
-                                          </ul>
-                                        </div>
-                                      </div>
-                                    </div>
-                    
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                <!-- ===== Semester Project @ Applied AI Lab ===== -->
+                <div class="container text-start mb-4">
+                  <div class="row g-3 align-items-center">
+                    <!-- Left block: image + links + tags -->
+                    <div class="col-12 col-md-4 text-center">
+                      <img src="assets/img/projects/fnews.png" style="width:140px; height:140px;"
+                        alt="FakeNews thumbnail" class="mb-2">
+                      <p class="small mb-1">
+                        <a href="https://github.com/gizayceylan/FakeNews" target="_blank">Repo</a>
+                      </p>
+                      <p class="small text-muted mb-0">
+                        #python #langchain #huggingface #openai #googlecolab
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Trips</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/ts.png" alt="..." style="max-width: 50%";/>
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Places I’ve visited around the world — click a marker to see photos!</p>
-                                    <!-- Leaflet Map Container -->
-                                    <div id="map" style="height:400px; width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"></div>
-                                    <!-- <div id="map" style="height: 500px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"></div> -->
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Right block: title + bullets -->
+                    <div class="col-12 col-md-8">
+                      <h4 class="text-secondary mb-1"><i class="fas fa-brain me-2"></i>Agentic Systems @ AAI Lab</h4>
+                      <p><strong>Agentic System for Content Authenticity Verification</strong></p>
+                      <ul class="mb-2">
+                        <li>Developing a hybrid VLM and LLM based system for verifying multimodal content authenticity
+                          using reasoning and perception modules.</li>
+                        <li>Exploring LangChain-based pipelines for cross-modal verification and user-facing
+                          explainability.</li>
+                      </ul>
                     </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Friends</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/fs.png" alt="..." style="max-width: 50%"/>
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">A tribute to all my wonderful companions — furry, feathery, and shelled — who’ve made life brighter 🐾</p>
-                                    
-                                  <!-- Pet Gallery -->
-                                  <div class="row justify-content-center g-4">
-                                    <!-- Pet 1 -->
-                                    <div class="col-6 col-md-4 col-lg-3">
-                                      <img src="assets/img/friends/lunam.png" class="friends-pic" alt="Lunam">
-                                      <p class="mt-2 fw-bold">Lunam</p>
-                                    </div>
-                                    <!-- Pet 2 -->
-                                    <div class="col-6 col-md-4 col-lg-3">
-                                      <img src="assets/img/friends/bboum.jpg" class="friends-pic" alt="Boum Boum">
-                                      <p class="mt-2 fw-bold">Boum Boum</p>
-                                    </div>
-                                    <!-- Pet 3 -->
-                                    <div class="col-6 col-md-4 col-lg-3">
-                                      <img src="assets/img/friends/ripple.jpg" class="friends-pic" alt="Ripple">
-                                      <p class="mt-2 fw-bold">Ripple</p>
-                                    </div>
-                                    <!-- Pet 4 -->
-                                    <div class="col-6 col-md-4 col-lg-3">
-                                      <img src="assets/img/friends/incrbbam.jpg" class="friends-pic" alt="Incir & Bambam">
-                                      <p class="mt-2 fw-bold">Incir & Bambam</p>
-                                    </div>
-                                    <!-- Pet 5 -->
-                                    <div class="col-6 col-md-4 col-lg-3">
-                                      <img src="assets/img/friends/yumcap.jpg" class="friends-pic" alt="Yumiyum & Cappucino">
-                                      <p class="mt-2 fw-bold">Yumiyum & Cappucino</p>
-                                    </div>
-                                    <!-- Pet 6 -->
-                                    <div class="col-6 col-md-4 col-lg-3">
-                                      <img src="assets/img/friends/murtz.jpg" class="friends-pic" alt="Murtaza">
-                                      <p class="mt-2 fw-bold">Murtaza</p>
-                                    </div>
-                                    <!-- Pet 7 -->
-                                    <div class="col-6 col-md-4 col-lg-3">
-                                      <img src="assets/img/friends/rlc.jpg" class="friends-pic" alt="Rafadan & Lop & Civik">
-                                      <p class="mt-2 fw-bold">Rafadan & Lop & Civik</p>
-                                    </div>
-                                    <!-- Pet 8 -->
-                                    <div class="col-6 col-md-4 col-lg-3">
-                                      <img src="assets/img/friends/wodka.jpg" class="friends-pic" alt="Wodka">
-                                      <p class="mt-2 fw-bold">Wodka</p>
-                                    </div>
-                                  </div>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+
+                <!-- ===== IxD @ UNIL ===== -->
+                <div class="container text-start mb-4">
+                  <div class="row g-3 align-items-center">
+                    <!-- Left block: image + links + tags -->
+                    <div class="col-12 col-md-4 text-center">
+                      <img src="assets/img/projects/ixd.png" style="width:140px; height:140px;" alt="IxD thumbnail"
+                        class="mb-2">
+                      <p class="small mb-1">
+                        <a href="https://drive.google.com/file/d/1mSQzypgDa6M0Bf49ytqdsz6zXJuDONsL/view?usp=drive_link"
+                          target="_blank">▶ Demo </a>
+                      </p>
+                      <p class="small text-muted mb-0">
+                        #flutterflow #qualtrics #python #googlecolab
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Books & Games</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/bgs.png" alt="..." style="max-width: 50%"/>
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">A collection of books and games I enjoy.</p>
-
-                                  <!-- ===== Goodreads ===== -->
-                                  <div class="text-start mb-4">
-                                    <h4 class="text-secondary mb-2"><i class="fas fa-book me-2"></i>Goodreads Book Catalogue</h4>
-                                    <p>
-                                      <a href="https://www.goodreads.com/user/show/63339293-gzy" target="_blank">View my Goodreads profile</a>
-                                    </p>
-                                  </div>
-                    
-                                  <!-- ===== Console Games ===== -->
-                                  <div class="text-start mb-4">
-                                    <h4 class="text-secondary mb-2"><i class="fas fa-gamepad me-2"></i>PC & Console Games</h4>
-                                    <p>
-                                      TLOU, Hogwarts Legacy, Diablo, It Takes Two, Unravel, Firewatch, Stardew Valley, Hearthstone, Warcraft, Minecraft, The Sims, Hollow Knight, GTA, Spiderman, Batman, Dota, Bioshock, Soma, Terraria
-                                    </p>
-                                  </div>
-                    
-                                  <!-- ===== Mobile Games ===== -->
-                                  <div class="text-start mb-4">
-                                    <h4 class="text-secondary mb-2"><i class="fas fa-mobile-screen-button me-2"></i>Mobile Games</h4>
-                                    <p>
-                                      Diablo Immortal, Vainglory, Brawl Stars, Clash Royale, Clash of Clans, Pokémon Go
-                                    </p>
-                                  </div>
-
-                                  <!-- ===== Board Games ===== -->
-                                 <div class="text-start mb-4">
-                                    <h4 class="text-secondary mb-2"><i class="fas fa-chess-knight me-2"></i>Board Games</h4>
-                                    <p>
-                                      Magic: The Gathering, Aftermath, Terraforming Mars, Backgammon
-                                    </p>
-                                 </div>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Right block: title + bullets -->
+                    <div class="col-12 col-md-8">
+                      <h4 class="text-secondary mb-1"><i class="fas fa-heart-pulse me-2"></i>IxD @ UNIL</h4>
+                      <p><strong>Mobile Platform for Chronic Disease Monitoring</strong></p>
+                      <ul class="mb-2">
+                        <li>Designed a remote monitoring platform for chronic patients and healthcare providers.</li>
+                        <li>Built high-fidelity interactive prototype and tested usability with patients and healthcare
+                          professionals.</li>
+                      </ul>
                     </div>
+                  </div>
                 </div>
+
+                <!-- ===== Recommender System @ UNIL ===== -->
+                <div class="container text-start mb-4">
+                  <div class="row g-3 align-items-center">
+                    <!-- Left block: image + links + tags -->
+                    <div class="col-12 col-md-4 text-center">
+                      <img src="assets/img/projects/bert.png" style="width:140px; height:140px;" alt="BERT thumbnail"
+                        class="mb-2">
+                      <p class="small mb-1">
+                        <a href="https://github.com/gizayceylan/Kagglers" target="_blank">Repo</a> |
+                        <a href="https://www.youtube.com/channel/UCyc3icUXnA_le8F8MbSIOIA" target="_blank">▶ Demo</a>
+                      </p>
+                      <p class="small text-muted mb-0">
+                        #python #pytorch #bert #googlecolab
+                      </p>
+                    </div>
+                    <!-- Right block: title + bullets -->
+                    <div class="col-12 col-md-8">
+                      <h4 class="text-secondary mb-1"><i class="fas fa-book me-2"></i>Recommender System @ UNIL</h4>
+                      <p><strong>Library Book Recommendation System</strong></p>
+                      <ul class="mb-2">
+                        <li>Built a personalized recommendation engine using natural language embeddings and
+                          collaborative filtering.</li>
+                        <li>Trained models with multilingual metadata and French book descriptions.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ===== Web App @ UNIL ===== -->
+                <div class="container text-start mb-4">
+                  <div class="row g-3 align-items-center">
+                    <!-- Left side: Image + Repo/Demo -->
+                    <div class="col-12 col-md-4 text-center">
+                      <img src="assets/img/projects/recipe.png" class="proj-thumb" alt="Web App thumbnail"
+                        style="width:140px; height:140px;" alt="RecipE thumbnail" class="mb-2">
+                      <p class="small mb-1">
+                        <a href="https://www.youtube.com/playlist?list=PLV4qz_xKv-u8FR3tNzKVHfveeyhF7wWSF"
+                          target="_blank">▶ Demo</a>
+                      </p>
+                      <p class="small text-muted mb-0">
+                        #java #javascript #css #html #intellij
+                      </p>
+                    </div>
+                    <!-- Right side: Text -->
+                    <div class="col-12 col-md-8">
+                      <h4 class="text-secondary mb-1"><i class="fas fa-utensils me-2"></i>Web App @ UNIL</h4>
+                      <p><strong>Daily Meal Planner Web Application</strong></p>
+                      <ul class="mb-2">
+                        <li>Developed a full-stack web app for generating meal plans with a dynamic Java backend and
+                          interactive UI.</li>
+                        <li>Implemented RESTful endpoints and frontend integration for live meal plan generation.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <button class="btn btn-primary" data-bs-dismiss="modal">
+                  <i class="fas fa-xmark fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
             </div>
+          </div>
         </div>
-        <!-- Restore main modal on close -->
-        <script>
-          const phdModal = document.getElementById('phdModal');
-          phdModal.addEventListener('hidden.bs.modal', function () {
-            const mainModal = new bootstrap.Modal(document.getElementById('portfolioModal1'));
-            mainModal.show();
-          });
-        
-          const mscModal = document.getElementById('mscModal');
-          mscModal.addEventListener('hidden.bs.modal', function () {
-            const mainModal = new bootstrap.Modal(document.getElementById('portfolioModal1'));
-            mainModal.show();
-          });
-        
-          const phdBtn = document.querySelector('[data-bs-target="#phdModal"]');
-          phdBtn.addEventListener('click', () => {
-            const mainModal = bootstrap.Modal.getInstance(document.querySelector('#portfolioModal1'));
-            mainModal.hide();
-          });
-        
-          const mscBtn = document.querySelector('[data-bs-target="#mscModal"]');
-          mscBtn.addEventListener('click', () => {
-            const mainModal = bootstrap.Modal.getInstance(document.querySelector('#portfolioModal1'));
-            mainModal.hide();
-          });
-        </script>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 4-->
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
+            aria-label="Close"></button></div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Trips</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/ts.png" alt="..." style="max-width: 50%"
+                  ; />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4">Places I’ve visited around the world — click a marker to see photos!</p>
+                <!-- Leaflet Map Container -->
+                <div id="map"
+                  style="height:400px; width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"></div>
+                <!-- <div id="map" style="height: 500px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"></div> -->
+                <button class="btn btn-primary" data-bs-dismiss="modal">
+                  <i class="fas fa-xmark fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 5-->
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
+            aria-label="Close"></button></div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Friends</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/fs.png" alt="..."
+                  style="max-width: 50%" />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4">A tribute to all my wonderful companions — furry, feathery, and shelled — who’ve made
+                  life brighter 🐾</p>
 
-        <!-- Initialize Map -->
-        <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const tripsModal = document.getElementById('portfolioModal4');
-          tripsModal.addEventListener('shown.bs.modal', function () {
-            if (!window.mapInitialized) {
-              const map = L.map('map').setView([20, 0], 2);
+                <!-- Pet Gallery -->
+                <div class="row justify-content-center g-4">
+                  <!-- Pet 1 -->
+                  <div class="col-6 col-md-4 col-lg-3">
+                    <img src="assets/img/friends/lunam.png" class="friends-pic" alt="Lunam">
+                    <p class="mt-2 fw-bold">Lunam</p>
+                  </div>
+                  <!-- Pet 2 -->
+                  <div class="col-6 col-md-4 col-lg-3">
+                    <img src="assets/img/friends/bboum.jpg" class="friends-pic" alt="Boum Boum">
+                    <p class="mt-2 fw-bold">Boum Boum</p>
+                  </div>
+                  <!-- Pet 3 -->
+                  <div class="col-6 col-md-4 col-lg-3">
+                    <img src="assets/img/friends/ripple.jpg" class="friends-pic" alt="Ripple">
+                    <p class="mt-2 fw-bold">Ripple</p>
+                  </div>
+                  <!-- Pet 4 -->
+                  <div class="col-6 col-md-4 col-lg-3">
+                    <img src="assets/img/friends/incrbbam.jpg" class="friends-pic" alt="Incir & Bambam">
+                    <p class="mt-2 fw-bold">Incir & Bambam</p>
+                  </div>
+                  <!-- Pet 5 -->
+                  <div class="col-6 col-md-4 col-lg-3">
+                    <img src="assets/img/friends/yumcap.jpg" class="friends-pic" alt="Yumiyum & Cappucino">
+                    <p class="mt-2 fw-bold">Yumiyum & Cappucino</p>
+                  </div>
+                  <!-- Pet 6 -->
+                  <div class="col-6 col-md-4 col-lg-3">
+                    <img src="assets/img/friends/murtz.jpg" class="friends-pic" alt="Murtaza">
+                    <p class="mt-2 fw-bold">Murtaza</p>
+                  </div>
+                  <!-- Pet 7 -->
+                  <div class="col-6 col-md-4 col-lg-3">
+                    <img src="assets/img/friends/rlc.jpg" class="friends-pic" alt="Rafadan & Lop & Civik">
+                    <p class="mt-2 fw-bold">Rafadan & Lop & Civik</p>
+                  </div>
+                  <!-- Pet 8 -->
+                  <div class="col-6 col-md-4 col-lg-3">
+                    <img src="assets/img/friends/wodka.jpg" class="friends-pic" alt="Wodka">
+                    <p class="mt-2 fw-bold">Wodka</p>
+                  </div>
+                </div>
+                <button class="btn btn-primary" data-bs-dismiss="modal">
+                  <i class="fas fa-xmark fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 6-->
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
+            aria-label="Close"></button></div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Books & Games</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/bgs.png" alt="..."
+                  style="max-width: 50%" />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4">A collection of books and games I enjoy.</p>
 
-              // Default tile theme
-              // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              //   attribution: '&copy; OpenStreetMap contributors'
-              // }).addTo(map);
+                <!-- ===== Goodreads ===== -->
+                <div class="text-start mb-4">
+                  <h4 class="text-secondary mb-2"><i class="fas fa-book me-2"></i>Goodreads Book Catalogue</h4>
+                  <p>
+                    <a href="https://www.goodreads.com/user/show/63339293-gzy" target="_blank">View my Goodreads
+                      profile</a>
+                  </p>
+                </div>
 
-              // Voyager tile theme 
-              L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-                  attribution: '&copy; CartoDB & OpenStreetMap contributors'
-              }).addTo(map);
-  
-              // Add images
-              // const trips = [
-              //   { name: 'Switzerland', coords: [46.8182, 8.2275], img: 'assets/img/trips/switzerland.jpg' },
-              //   { name: 'Japan', coords: [35.0116, 135.7681], img: 'assets/img/trips/japan.jpg' },
-              //   { name: 'Lisbon, Portugal', coords: [38.7169, -9.1399], img: 'assets/img/trips/lisbon.jpg' },
-              //   { name: 'Turkey', coords: [39.9334, 32.8597], img: 'assets/img/trips/turkey.jpg' },
-              //   { name: 'France', coords: [48.8566, 2.3522], img: 'assets/img/trips/france.jpg' },
-              //   { name: 'Italy', coords: [41.8719, 12.5674], img: 'assets/img/trips/italy.jpg' }
-              // ];
+                <!-- ===== Console Games ===== -->
+                <div class="text-start mb-4">
+                  <h4 class="text-secondary mb-2"><i class="fas fa-gamepad me-2"></i>PC & Console Games</h4>
+                  <p>
+                    TLOU, Hogwarts Legacy, Diablo, It Takes Two, Unravel, Firewatch, Stardew Valley, Hearthstone,
+                    Warcraft, Minecraft, The Sims, Hollow Knight, GTA, Spiderman, Batman, Dota, Bioshock, Soma, Terraria
+                  </p>
+                </div>
 
-              const trips = [
-                  {
-                    name: 'Türkiye',
-                    coords: [39.9334, 32.8597], // Ankara (central & symbolic)
-                    img: null,
-                    // img: 'assets/img/trips/turkiye.jpg',
-                    cities: 'Ankara, İzmir, Muğla, İstanbul, Antalya, Rize, Eskişehir, Aydın, Bolu, Didim, Balıkesir, Kocaeli, Nevşehir'
-                  },
-                  {
-                    name: 'Italy',
-                    coords: [41.8719, 12.5674],
-                    img: null,
-                    // img: 'assets/img/trips/italy.jpg',
-                    cities: 'Rome, Naples, Pisa, Florence, Milan, Venice, Trieste'
-                  },
-                  {
-                    name: 'France',
-                    coords: [46.2276, 2.2137],
-                    img: null,  
-                    // img: 'assets/img/trips/france.jpg',
-                    cities: 'Paris, Lyon, Bordeaux, Nice, Chambéry'
-                  },
-                  {
-                    name: 'Switzerland',
-                    coords: [46.8182, 8.2275],
-                    img: 'assets/img/trips/switzerland.jpg',
-                    cities: 'Geneva, Lausanne, Zürich, Basel, Bern, Meyrin, Lauterbrunnen, Montreux, Vevey'
-                  },
-                  {
-                    name: 'Spain',
-                    coords: [40.4637, -3.7492],
-                    img: 'assets/img/trips/spain.jpg',
-                    cities: 'Barcelona, Mallorca'
-                  },
-                  {
-                    name: 'Portugal',
-                    coords: [39.3999, -8.2245],
-                    img: 'assets/img/trips/lisbon.jpg',
-                    cities: 'Lisbon'
-                  },
-                  {
-                    name: 'Belgium',
-                    coords: [50.5039, 4.4699],
-                    img: null,  
-                    // img: 'assets/img/trips/belgium.jpg',
-                    cities: 'Brussels, Bruges'
-                  },
-                  {
-                    name: 'Germany',
-                    coords: [51.1657, 10.4515],
-                    img: null,
-                    // img: 'assets/img/trips/germany.jpg',
-                    cities: 'Cologne, Frankfurt, Munich, Berlin, Hamburg, Mannheim'
-                  },
-                  {
-                    name: 'Netherlands',
-                    coords: [52.1326, 5.2913],
-                    img: 'assets/img/trips/netherlands.jpg',
-                    cities: 'Maastricht, Amsterdam, The Hague, Nijmegen'
-                  },
-                  {
-                    name: 'Iceland',
-                    coords: [64.9631, -19.0208],
-                    img: 'assets/img/trips/iceland.jpg',
-                    cities: 'Reykjavik, Kerið, Strokkur, Laugarvatn, Thingvellir'
-                  },
-                  {
-                    name: 'Sweden',
-                    coords: [60.1282, 18.6435],
-                    img: null,  
-                    // img: 'assets/img/trips/sweden.jpg',
-                    cities: 'Stockholm'
-                  },
-                  {
-                    name: 'Finland',
-                    coords: [61.9241, 25.7482],
-                    img: null,  
-                    // img: 'assets/img/trips/finland.jpg',
-                    cities: 'Helsinki, Turku, Åland'
-                  },
-                  {
-                    name: 'Estonia',
-                    coords: [58.5953, 25.0136],
-                    img: null,  
-                    // img: 'assets/img/trips/estonia.jpg',
-                    cities: 'Tallinn'
-                  },
-                  // {
-                  //   name: 'Bulgaria',
-                  //   coords: [42.7339, 25.4858],
-                  //   img: 'assets/img/trips/bulgaria.jpg',
-                  //   cities: 'Varna'
-                  // },
-                  {
-                    name: 'United States',
-                    coords: [37.0902, -95.7129],
-                    img: 'assets/img/trips/usa.jpg',
-                    cities: 'Florida, New York, Miami'
-                  },
-                  {
-                    name: 'South Korea',
-                    coords: [35.9078, 127.7669],
-                    img: 'assets/img/trips/korea.jpg',
-                    cities: 'Seoul, Jeju'
-                  },
-                  {
-                    name: 'Japan',
-                    coords: [36.2048, 138.2529],
-                    img: 'assets/img/trips/japan.jpg',
-                    cities: 'Kyoto, Hiroshima, Nara, Osaka, Kobe'
-                  }
-                ];
+                <!-- ===== Mobile Games ===== -->
+                <div class="text-start mb-4">
+                  <h4 class="text-secondary mb-2"><i class="fas fa-mobile-screen-button me-2"></i>Mobile Games</h4>
+                  <p>
+                    Diablo Immortal, Vainglory, Brawl Stars, Clash Royale, Clash of Clans, Pokémon Go
+                  </p>
+                </div>
 
-              // Add markers + hover popups
-              trips.forEach(t => {
-                
-                  // Build popup content conditionally (no broken image!)
-                  const popupContent = `
+                <!-- ===== Board Games ===== -->
+                <div class="text-start mb-4">
+                  <h4 class="text-secondary mb-2"><i class="fas fa-chess-knight me-2"></i>Board Games</h4>
+                  <p>
+                    Magic: The Gathering, Aftermath, Terraforming Mars, Backgammon
+                  </p>
+                </div>
+                <button class="btn btn-primary" data-bs-dismiss="modal">
+                  <i class="fas fa-xmark fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Restore main modal on close -->
+  <script>
+    const phdModal = document.getElementById('phdModal');
+    phdModal.addEventListener('hidden.bs.modal', function () {
+      const mainModal = new bootstrap.Modal(document.getElementById('portfolioModal1'));
+      mainModal.show();
+    });
+
+    const mscModal = document.getElementById('mscModal');
+    mscModal.addEventListener('hidden.bs.modal', function () {
+      const mainModal = new bootstrap.Modal(document.getElementById('portfolioModal1'));
+      mainModal.show();
+    });
+
+    const phdBtn = document.querySelector('[data-bs-target="#phdModal"]');
+    phdBtn.addEventListener('click', () => {
+      const mainModal = bootstrap.Modal.getInstance(document.querySelector('#portfolioModal1'));
+      mainModal.hide();
+    });
+
+    const mscBtn = document.querySelector('[data-bs-target="#mscModal"]');
+    mscBtn.addEventListener('click', () => {
+      const mainModal = bootstrap.Modal.getInstance(document.querySelector('#portfolioModal1'));
+      mainModal.hide();
+    });
+  </script>
+
+  <!-- Initialize Map -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tripsModal = document.getElementById('portfolioModal4');
+      tripsModal.addEventListener('shown.bs.modal', function () {
+        if (!window.mapInitialized) {
+          const map = L.map('map').setView([20, 0], 2);
+
+          // Default tile theme
+          // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          //   attribution: '&copy; OpenStreetMap contributors'
+          // }).addTo(map);
+
+          // Voyager tile theme 
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; CartoDB & OpenStreetMap contributors'
+          }).addTo(map);
+
+          // Add images
+          // const trips = [
+          //   { name: 'Switzerland', coords: [46.8182, 8.2275], img: 'assets/img/trips/switzerland.jpg' },
+          //   { name: 'Japan', coords: [35.0116, 135.7681], img: 'assets/img/trips/japan.jpg' },
+          //   { name: 'Lisbon, Portugal', coords: [38.7169, -9.1399], img: 'assets/img/trips/lisbon.jpg' },
+          //   { name: 'Turkey', coords: [39.9334, 32.8597], img: 'assets/img/trips/turkey.jpg' },
+          //   { name: 'France', coords: [48.8566, 2.3522], img: 'assets/img/trips/france.jpg' },
+          //   { name: 'Italy', coords: [41.8719, 12.5674], img: 'assets/img/trips/italy.jpg' }
+          // ];
+
+          const trips = [
+            {
+              name: 'Türkiye',
+              coords: [39.9334, 32.8597], // Ankara (central & symbolic)
+              img: null,
+              // img: 'assets/img/trips/turkiye.jpg',
+              cities: 'Ankara, İzmir, Muğla, İstanbul, Antalya, Rize, Eskişehir, Aydın, Bolu, Didim, Balıkesir, Kocaeli, Nevşehir'
+            },
+            {
+              name: 'Italy',
+              coords: [41.8719, 12.5674],
+              img: null,
+              // img: 'assets/img/trips/italy.jpg',
+              cities: 'Rome, Naples, Pisa, Florence, Milan, Venice, Trieste'
+            },
+            {
+              name: 'France',
+              coords: [46.2276, 2.2137],
+              img: null,
+              // img: 'assets/img/trips/france.jpg',
+              cities: 'Paris, Lyon, Bordeaux, Nice, Chambéry'
+            },
+            {
+              name: 'Switzerland',
+              coords: [46.8182, 8.2275],
+              img: 'assets/img/trips/switzerland.jpg',
+              cities: 'Geneva, Lausanne, Zürich, Basel, Bern, Meyrin, Lauterbrunnen, Montreux, Vevey'
+            },
+            {
+              name: 'Spain',
+              coords: [40.4637, -3.7492],
+              img: 'assets/img/trips/spain.jpg',
+              cities: 'Barcelona, Mallorca'
+            },
+            {
+              name: 'Portugal',
+              coords: [39.3999, -8.2245],
+              img: 'assets/img/trips/lisbon.jpg',
+              cities: 'Lisbon'
+            },
+            {
+              name: 'Belgium',
+              coords: [50.5039, 4.4699],
+              img: null,
+              // img: 'assets/img/trips/belgium.jpg',
+              cities: 'Brussels, Bruges'
+            },
+            {
+              name: 'Germany',
+              coords: [51.1657, 10.4515],
+              img: null,
+              // img: 'assets/img/trips/germany.jpg',
+              cities: 'Cologne, Frankfurt, Munich, Berlin, Hamburg, Mannheim'
+            },
+            {
+              name: 'Netherlands',
+              coords: [52.1326, 5.2913],
+              img: 'assets/img/trips/netherlands.jpg',
+              cities: 'Maastricht, Amsterdam, The Hague, Nijmegen'
+            },
+            {
+              name: 'Iceland',
+              coords: [64.9631, -19.0208],
+              img: 'assets/img/trips/iceland.jpg',
+              cities: 'Reykjavik, Kerið, Strokkur, Laugarvatn, Thingvellir'
+            },
+            {
+              name: 'Sweden',
+              coords: [60.1282, 18.6435],
+              img: null,
+              // img: 'assets/img/trips/sweden.jpg',
+              cities: 'Stockholm'
+            },
+            {
+              name: 'Finland',
+              coords: [61.9241, 25.7482],
+              img: null,
+              // img: 'assets/img/trips/finland.jpg',
+              cities: 'Helsinki, Turku, Åland'
+            },
+            {
+              name: 'Estonia',
+              coords: [58.5953, 25.0136],
+              img: null,
+              // img: 'assets/img/trips/estonia.jpg',
+              cities: 'Tallinn'
+            },
+            // {
+            //   name: 'Bulgaria',
+            //   coords: [42.7339, 25.4858],
+            //   img: 'assets/img/trips/bulgaria.jpg',
+            //   cities: 'Varna'
+            // },
+            {
+              name: 'United States',
+              coords: [37.0902, -95.7129],
+              img: 'assets/img/trips/usa.jpg',
+              cities: 'Florida, New York, Miami'
+            },
+            {
+              name: 'South Korea',
+              coords: [35.9078, 127.7669],
+              img: 'assets/img/trips/korea.jpg',
+              cities: 'Seoul, Jeju'
+            },
+            {
+              name: 'Japan',
+              coords: [36.2048, 138.2529],
+              img: 'assets/img/trips/japan.jpg',
+              cities: 'Kyoto, Hiroshima, Nara, Osaka, Kobe'
+            }
+          ];
+
+          // Add markers + hover popups
+          trips.forEach(t => {
+
+            // Build popup content conditionally (no broken image!)
+            const popupContent = `
                     <strong>${t.name}</strong><br>
                     <em>${t.cities}</em><br>
                     ${t.img ? `<img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">` : ''}
                   `;
-                
-                  const marker = L.marker(t.coords)
-                    .addTo(map)
-                    .bindPopup(popupContent);
-                
-                  // Hover behavior
-                  marker.on('mouseover', function () {
-                    this.openPopup();
-                  });
-                
-                  marker.on('mouseout', function () {
-                    this.closePopup();
-                  });
-                
-              });        
-        
-              window.mapInitialized = true;
-            }
-          });
-        });
-        </script>
 
-        <!-- Scroll to Top Button -->
-        <button id="scrollTopBtn" class="btn btn-social"
-            style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
-            <i class="fa-solid fa-chevron-up fa-xl" style="position:relative; left:-1px; bottom:-1px"></i>
-        </button>          
-        <!-- Scroll-to-top logic + hide on modals -->
-        <script>
-          const scrollBtn = document.getElementById("scrollTopBtn");
-          // Show/hide button on scroll
-          window.addEventListener("scroll", () => {
-            if (window.scrollY > 200) {
-              scrollBtn.style.display = "block";
-            } else {
-              scrollBtn.style.display = "none";
-            }
-          });
-          // Smooth scroll to top
-          scrollBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          });
-          // Hide scroll button whenever ANY modal opens
-          document.addEventListener('show.bs.modal', () => {
-            scrollBtn.style.display = "none";
-          });
-          // Reshow scroll button ONLY after all modals are closed
-          document.addEventListener('hidden.bs.modal', () => {
-            const anyOpen = document.querySelector('.modal.show');
-            if (!anyOpen && window.scrollY > 200) {
-              scrollBtn.style.display = "block";
-            }
-          });
-        </script>
+            const marker = L.marker(t.coords)
+              .addTo(map)
+              .bindPopup(popupContent);
 
-        <!-- Bootstrap core JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+            // Hover behavior
+            marker.on('mouseover', function () {
+              this.openPopup();
+            });
 
-        <!-- Core theme JS -->
-        <script src="js/scripts.js"></script>
-    </body>
+            marker.on('mouseout', function () {
+              this.closePopup();
+            });
+
+          });
+
+          window.mapInitialized = true;
+        }
+      });
+    });
+  </script>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" class="btn btn-social"
+    style="border:2px solid #2c3e50; background-color:#e76f51; color:white; transition:all 0.3s ease;">
+    <i class="fa-solid fa-chevron-up fa-xl" style="position:relative; left:-1px; bottom:-1px"></i>
+  </button>
+  <!-- Scroll-to-top logic + hide on modals -->
+  <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    // Show/hide button on scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
+    // Smooth scroll to top
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    // Hide scroll button whenever ANY modal opens
+    document.addEventListener('show.bs.modal', () => {
+      scrollBtn.style.display = "none";
+    });
+    // Reshow scroll button ONLY after all modals are closed
+    document.addEventListener('hidden.bs.modal', () => {
+      const anyOpen = document.querySelector('.modal.show');
+      if (!anyOpen && window.scrollY > 200) {
+        scrollBtn.style.display = "block";
+      }
+    });
+  </script>
+
+  <!-- Bootstrap core JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core theme JS -->
+  <script src="js/scripts.js"></script>
+</body>
+
 </html>
